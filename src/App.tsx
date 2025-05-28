@@ -337,22 +337,22 @@ function App() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {roles.map((role, index) => (
               <div
                 key={index}
-                className="role-card bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-[#8A2BE2]/20 transform transition-all duration-500 hover:scale-[1.02] hover:border-[#00F0FF]/40"
+                className="role-card bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-8 border border-[#8A2BE2]/20 transform transition-all duration-500 hover:scale-[1.02] hover:border-[#00F0FF]/40"
               >
-                <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
                   {role.title}
                 </h3>
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-400 mb-2">Key Skills Covered:</h4>
-                  <div className="flex flex-wrap gap-2">
+                <div className="mb-8">
+                  <h4 className="text-base font-semibold text-gray-300 mb-3">Key Skills Covered:</h4>
+                  <div className="flex flex-wrap gap-2.5">
                     {role.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-[#8A2BE2]/10 text-[#00F0FF] border border-[#00F0FF]/20"
+                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#8A2BE2]/10 text-[#00F0FF] border border-[#00F0FF]/20"
                       >
                         {skill}
                       </span>
@@ -360,12 +360,12 @@ function App() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-400 mb-2">Companies:</h4>
-                  <div className="flex flex-wrap gap-2">
+                  <h4 className="text-base font-semibold text-gray-300 mb-3">Companies:</h4>
+                  <div className="flex flex-wrap gap-2.5">
                     {role.companies.map((company, companyIndex) => (
                       <span
                         key={companyIndex}
-                        className="px-3 py-1 text-xs font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
+                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
                       >
                         {company}
                       </span>
