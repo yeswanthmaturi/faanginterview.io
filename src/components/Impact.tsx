@@ -44,7 +44,7 @@ function Impact() {
           <h2 className="text-4xl font-bold mb-4 decisive-edge">
             Our Proven Impact
           </h2>
-          <p className="text-gray-400 text-lg">
+          <p className="text-gray-400 text-lg opacity-60">
             (as of May 2025)
           </p>
         </div>
