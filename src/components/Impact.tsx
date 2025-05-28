@@ -49,7 +49,7 @@ function Impact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-16">
           <div className="bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/10">
             <span
               ref={el => counterRefs.current[0] = el}
@@ -90,6 +90,21 @@ function Impact() {
             </span>
             <span className="text-lg font-semibold text-gray-300">
               Avg. Compensation Increase
+            </span>
+          </div>
+
+          <div className="bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/10">
+            <span
+              ref={el => counterRefs.current[3] = el}
+              data-value="300"
+              data-prefix="$"
+              data-suffix="K"
+              className="block text-5xl font-bold text-[#8DFFCF] mb-4"
+            >
+              $0K
+            </span>
+            <span className="text-lg font-semibold text-gray-300">
+              Average Compensation per Candidate Achieved
             </span>
           </div>
         </div>
