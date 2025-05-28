@@ -46,44 +46,17 @@ function App() {
     {
       title: "Data Engineer",
       skills: ["SQL", "Python", "Data Modeling", "Big Data tools", "ETL Design", "Product Sense", "Behavioral Questions"],
-      companies: [
-        {
-          name: "Meta",
-          logo: "https://images.pexels.com/photos/18525574/pexels-photo-18525574.jpeg?auto=compress&cs=tinysrgb&w=32"
-        },
-        {
-          name: "Amazon",
-          logo: "https://images.pexels.com/photos/18525573/pexels-photo-18525573.jpeg?auto=compress&cs=tinysrgb&w=32"
-        },
-        {
-          name: "Doordash",
-          logo: "https://images.pexels.com/photos/18525572/pexels-photo-18525572.jpeg?auto=compress&cs=tinysrgb&w=32"
-        }
-      ]
+      companies: ["Meta", "Amazon", "Doordash"]
     },
     {
       title: "Business Intelligence Engineer",
       skills: ["SQL", "Data Modeling", "Business Acumen", "Data Visualizations", "Product Sense", "Behavioral Questions"],
-      companies: [
-        {
-          name: "Amazon",
-          logo: "https://images.pexels.com/photos/18525573/pexels-photo-18525573.jpeg?auto=compress&cs=tinysrgb&w=32"
-        },
-        {
-          name: "More companies (coming soon)",
-          logo: null
-        }
-      ]
+      companies: ["Amazon", "More companies (coming soon)"]
     },
     {
       title: "Software Engineer",
       skills: ["Coding", "System Design", "Architecture", "Multi level design", "Databases", "Front-end", "Back-end"],
-      companies: [
-        {
-          name: "Coming Soon",
-          logo: null
-        }
-      ]
+      companies: ["Coming Soon"]
     }
   ];
 
@@ -388,21 +361,14 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-base font-semibold text-gray-300 mb-3">Companies:</h4>
-                  <div className="flex flex-wrap gap-3">
+                  <div className="flex flex-wrap gap-2.5">
                     {role.companies.map((company, companyIndex) => (
-                      <div
+                      <span
                         key={companyIndex}
-                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
+                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
                       >
-                        {company.logo && (
-                          <img
-                            src={company.logo}
-                            alt={`${company.name} logo`}
-                            className="w-6 h-6 rounded-full object-cover"
-                          />
-                        )}
-                        <span className="text-sm font-medium">{company.name}</span>
-                      </div>
+                        {company}
+                      </span>
                     ))}
                   </div>
                 </div>
