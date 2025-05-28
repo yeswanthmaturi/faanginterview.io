@@ -45,33 +45,18 @@ function App() {
   const roles = [
     {
       title: "Data Engineer",
-      skills: ["SQL", "Python", "Data Modeling", "Big Data", "ETL", "Product Sense"],
-      companies: ["Meta", "Amazon", "Google", "Apple", "Netflix", "Microsoft"]
+      skills: ["SQL", "Python", "Data Modeling", "Big Data tools", "ETL Design", "Product Sense", "Behavioral Questions"],
+      companies: ["Meta", "Amazon", "Doordash"]
+    },
+    {
+      title: "Business Intelligence Engineer",
+      skills: ["SQL", "Data Modeling", "Business Acumen", "Data Visualizations", "Product Sense", "Behavioral Questions"],
+      companies: ["Amazon", "More companies (coming soon)"]
     },
     {
       title: "Software Engineer",
-      skills: ["DSA", "System Design", "Architecture", "Full Stack", "Backend", "Frontend"],
-      companies: ["Meta", "Amazon", "Google", "Apple", "Netflix", "Microsoft"]
-    },
-    {
-      title: "ML Engineer",
-      skills: ["ML Algorithms", "Deep Learning", "Python", "Statistics", "Data Science"],
-      companies: ["Meta", "Amazon", "Google", "Microsoft"]
-    },
-    {
-      title: "Product Manager",
-      skills: ["Product Strategy", "Analytics", "UX", "Technical Skills", "Leadership"],
-      companies: ["Meta", "Amazon", "Google", "Microsoft"]
-    },
-    {
-      title: "Engineering Manager",
-      skills: ["Leadership", "System Design", "People Management", "Strategy"],
-      companies: ["Meta", "Amazon", "Google", "Apple", "Microsoft"]
-    },
-    {
-      title: "Frontend Engineer",
-      skills: ["React", "JavaScript", "CSS", "System Design", "Web Performance"],
-      companies: ["Meta", "Amazon", "Google", "Netflix", "Microsoft"]
+      skills: ["Coding", "System Design", "Architecture", "Multi level design", "Databases", "Front-end", "Back-end"],
+      companies: ["Coming Soon"]
     }
   ];
 
@@ -348,7 +333,7 @@ function App() {
               Roles We Support
             </h2>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Comprehensive interview preparation for various technical and leadership roles at top tech companies
+              Comprehensive interview preparation for various technical roles at top tech companies
             </p>
           </div>
 
