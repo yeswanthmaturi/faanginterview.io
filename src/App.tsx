@@ -49,18 +49,18 @@ function App() {
       companies: [
         {
           name: "Meta",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
-          height: 40
+          logo: "https://1000logos.net/wp-content/uploads/2021/10/Meta-Logo.png",
+          height: 35
         },
         {
           name: "Amazon",
           logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-          height: 30
+          height: 35
         },
         {
           name: "DoorDash",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/41/DoorDash_Logo.svg",
-          height: 40
+          logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/DoorDash_Logo.svg",
+          height: 35
         }
       ]
     },
@@ -71,7 +71,7 @@ function App() {
         {
           name: "Amazon",
           logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-          height: 30
+          height: 35
         },
         {
           name: "More companies",
