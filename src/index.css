@@ -29,6 +29,22 @@
   }
 }
 
+.title-gradient {
+  background: linear-gradient(90deg, #00F0FF, #8A2BE2, #00F0FF);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+  display: inline-block;
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+.title-gradient:hover {
+  transform: scale(1.1);
+}
+
 .step-card {
   transform-style: preserve-3d;
   perspective: 1000px;
