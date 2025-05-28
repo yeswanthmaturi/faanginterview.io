@@ -72,13 +72,6 @@ function App() {
     }
   };
 
-  const handleScrollToSuccessStories = () => {
-    const successStoriesSection = document.getElementById('success-stories-section');
-    if (successStoriesSection) {
-      successStoriesSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       {/* Hero Section */}
@@ -181,10 +174,7 @@ function App() {
                 <span>See our supported roles and companies</span>
                 <ArrowRight className="h-6 w-6" />
               </button>
-              <button 
-                onClick={handleScrollToSuccessStories}
-                className="flex items-center justify-center space-x-3 rounded-full border border-[#8A2BE2] px-8 py-4 font-semibold transition-all duration-300 ease-in-out hover:bg-[#8A2BE2]/10 hover:transform hover:scale-105"
-              >
+              <button className="flex items-center justify-center space-x-3 rounded-full border border-[#8A2BE2] px-8 py-4 font-semibold transition-all duration-300 ease-in-out hover:bg-[#8A2BE2]/10 hover:transform hover:scale-105">
                 <span>See our success stories</span>
               </button>
             </div>
