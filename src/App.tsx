@@ -59,8 +59,8 @@ function App() {
         },
         {
           name: "DoorDash",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/DoorDash_Logo.svg",
-          height: 25
+          logo: "https://upload.wikimedia.org/wikipedia/en/4/41/DoorDash_Logo.svg",
+          height: 40
         }
       ]
     },
