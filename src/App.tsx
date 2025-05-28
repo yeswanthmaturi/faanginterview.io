@@ -46,48 +46,17 @@ function App() {
     {
       title: "Data Engineer",
       skills: ["SQL", "Python", "Data Modeling", "Big Data tools", "ETL Design", "Product Sense", "Behavioral Questions"],
-      companies: [
-        {
-          name: "Meta",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
-          height: 40
-        },
-        {
-          name: "Amazon",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-          height: 30
-        },
-        {
-          name: "DoorDash",
-          logo: "https://upload.wikimedia.org/wikipedia/en/4/41/DoorDash_Logo.svg",
-          height: 40
-        }
-      ]
+      companies: ["Meta", "Amazon", "Doordash"]
     },
     {
       title: "Business Intelligence Engineer",
       skills: ["SQL", "Data Modeling", "Business Acumen", "Data Visualizations", "Product Sense", "Behavioral Questions"],
-      companies: [
-        {
-          name: "Amazon",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
-          height: 30
-        },
-        {
-          name: "More companies",
-          text: "More companies (coming soon)"
-        }
-      ]
+      companies: ["Amazon", "More companies (coming soon)"]
     },
     {
       title: "Software Engineer",
       skills: ["Coding", "System Design", "Architecture", "Multi level design", "Databases", "Front-end", "Back-end"],
-      companies: [
-        {
-          name: "Coming Soon",
-          text: "Coming Soon"
-        }
-      ]
+      companies: ["Coming Soon"]
     }
   ];
 
@@ -201,6 +170,122 @@ function App() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#8A2BE2]/20 to-transparent"></div>
       </div>
 
+      {/* How are we different section */}
+      <div className="relative py-24 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent animate-gradient">
+              How are we different
+            </h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-6">
+              Navigating the competitive landscape of FAANG interviews requires more than just practice; it
+              demands a tailored strategy, expert guidance, and a risk-free approach.
+            </p>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+              Here's how FAANGInterview.io provides that <span className="decisive-edge">decisive edge</span>:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Pricing Model Comparison */}
+            <div className="comparison-card">
+              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden">
+                Pricing Model
+              </h3>
+              <div className="comparison-content">
+                <div className="competitor-side">
+                  <div className="flex flex-col mb-2">
+                    <div className="flex items-center">
+                      <X className="h-5 w-5 text-red-500 mr-2" />
+                      <h4 className="text-gray-500 font-bold">The Competition</h4>
+                    </div>
+                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
+                  </div>
+                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                    Hourly fees or per-call charges (uncapped)
+                  </p>
+                </div>
+                <div className="our-side">
+                  <div className="flex items-center mb-2">
+                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
+                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                  </div>
+                  <div>
+                    <p className="gradient-text font-bold text-lg mt-2">Pay only upon securing your FAANG offer.*</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Interviewer Quality Comparison */}
+            <div className="comparison-card">
+              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden tracking-tight">
+                Interviewer Quality
+              </h3>
+              <div className="comparison-content">
+                <div className="competitor-side">
+                  <div className="flex flex-col mb-2">
+                    <div className="flex items-center">
+                      <X className="h-5 w-5 text-red-500 mr-2" />
+                      <h4 className="text-gray-500 font-bold">The Competition</h4>
+                    </div>
+                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
+                  </div>
+                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                    Variable, often led by unverified or generalist FAANG individuals
+                  </p>
+                </div>
+                <div className="our-side">
+                  <div className="flex items-center mb-2">
+                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
+                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                  </div>
+                  <p className="gradient-text font-bold">
+                    Elite FAANG Interviewer Network: Dedicated, rigorously trained, and hand-picked engineers laser-focused on your success.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Prep Strategy Comparison */}
+            <div className="comparison-card">
+              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden">
+                Prep Strategy
+              </h3>
+              <div className="comparison-content">
+                <div className="competitor-side">
+                  <div className="flex flex-col mb-2">
+                    <div className="flex items-center">
+                      <X className="h-5 w-5 text-red-500 mr-2" />
+                      <h4 className="text-gray-500 font-bold">The Competition</h4>
+                    </div>
+                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
+                  </div>
+                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                    Generic & monotonous training that is not tailored for you
+                  </p>
+                </div>
+                <div className="our-side">
+                  <div className="flex items-center mb-2">
+                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
+                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                  </div>
+                  <p className="gradient-text font-bold">
+                    Hyper-Personalized Curriculum: Custom-designed training action plan adapting to your unique skills, strengths, and specific areas for improvement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <h3 className="text-2xl font-bold text-[#00F0FF] mb-4 animate-pulse">
+              The FAANGInterview.io Difference: Engineered for Results
+            </h3>
+          </div>
+        </div>
+      </div>
+
       {/* How It Works Section */}
       <section className="relative py-16">
         <div className="container mx-auto px-4">
@@ -276,24 +361,14 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-base font-semibold text-gray-300 mb-3">Companies:</h4>
-                  <div className="flex flex-wrap items-center gap-6">
+                  <div className="flex flex-wrap gap-2.5">
                     {role.companies.map((company, companyIndex) => (
-                      'logo' in company ? (
-                        <img
-                          key={companyIndex}
-                          src={company.logo}
-                          alt={company.name}
-                          height={company.height}
-                          className="h-auto max-h-10 w-auto object-contain filter brightness-100 hover:brightness-110 transition-all duration-300"
-                        />
-                      ) : (
-                        <span
-                          key={companyIndex}
-                          className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
-                        >
-                          {company.text}
-                        </span>
-                      )
+                      <span
+                        key={companyIndex}
+                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
+                      >
+                        {company}
+                      </span>
                     ))}
                   </div>
                 </div>
