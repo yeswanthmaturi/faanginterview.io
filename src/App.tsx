@@ -1,8 +1,15 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [activeSection, setActiveSection] = useState(0);
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
   const stepsContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -65,6 +72,84 @@ function App() {
       stopAutoScroll();
     };
   }, []);
+
+  useEffect(() => {
+    const sections = sectionsRef.current;
+
+    sections.forEach((section, index) => {
+      gsap.from(section.querySelector('.scroll-section-content'), {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top center',
+          end: 'bottom center',
+          toggleActions: 'play none none reverse',
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+      });
+
+      gsap.from(section.querySelector('.floating-element'), {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+        y: 100,
+        opacity: 0,
+        scale: 0.8,
+      });
+    });
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sections.findIndex((section) => section === entry.target);
+            setActiveSection(index);
+            entry.target.querySelector('.section-gradient')?.classList.add('visible');
+          } else {
+            entry.target.querySelector('.section-gradient')?.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => {
+      observerRef.current?.observe(section);
+    });
+
+    return () => {
+      observerRef.current?.disconnect();
+    };
+  }, []);
+
+  const features = [
+    {
+      title: "Initial Consultation",
+      subtitle: "Free Mock Interview",
+      icon: Users,
+      description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer.",
+      color: "#00F0FF"
+    },
+    {
+      title: "Personalized Learning",
+      subtitle: "Custom Pathway",
+      icon: Target,
+      description: "Leveraging insights from your target company and role, we develop a meticulously crafted preparation strategy designed to optimize your success.",
+      color: "#8A2BE2"
+    },
+    {
+      title: "Targeted Training",
+      subtitle: "Expert Curriculum",
+      icon: BookOpen,
+      description: "Access role-specific training materials, video courses, and practice exercises crafted by FAANG engineers.",
+      color: "#00F0FF"
+    }
+  ];
 
   const steps = [
     {
@@ -373,6 +458,42 @@ function App() {
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none" />
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0A0A0A] to-transparent pointer-events-none" />
+      </div>
+
+      <div className="vertical-scroll-section">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            ref={(el) => (sectionsRef.current[index] = el as HTMLDivElement)}
+            className="scroll-section"
+          >
+            <div className="section-gradient" />
+            <div className="scroll-section-content max-w-7xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                  <feature.icon
+                    className="floating-element feature-icon"
+                    style={{ color: feature.color }}
+                  />
+                  <h2 className="text-5xl font-bold mb-4 gradient-text">
+                    {feature.title}
+                  </h2>
+                  <h3 className="text-3xl font-semibold mb-6 text-[#8A2BE2]">
+                    {feature.subtitle}
+                  </h3>
+                  <p className="text-xl text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+                <div className="feature-card floating-element">
+                  <div className="aspect-square rounded-xl bg-gradient-to-br from-[#00F0FF]/20 to-[#8A2BE2]/20 flex items-center justify-center">
+                    <feature.icon className="h-24 w-24" style={{ color: feature.color }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
