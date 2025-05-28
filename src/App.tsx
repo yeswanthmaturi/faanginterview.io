@@ -46,17 +46,48 @@ function App() {
     {
       title: "Data Engineer",
       skills: ["SQL", "Python", "Data Modeling", "Big Data tools", "ETL Design", "Product Sense", "Behavioral Questions"],
-      companies: ["Meta", "Amazon", "Doordash"]
+      companies: [
+        {
+          name: "Meta",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
+          height: 40
+        },
+        {
+          name: "Amazon",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+          height: 30
+        },
+        {
+          name: "DoorDash",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Doordash_logo.svg",
+          height: 25
+        }
+      ]
     },
     {
       title: "Business Intelligence Engineer",
       skills: ["SQL", "Data Modeling", "Business Acumen", "Data Visualizations", "Product Sense", "Behavioral Questions"],
-      companies: ["Amazon", "More companies (coming soon)"]
+      companies: [
+        {
+          name: "Amazon",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+          height: 30
+        },
+        {
+          name: "More companies",
+          text: "More companies (coming soon)"
+        }
+      ]
     },
     {
       title: "Software Engineer",
       skills: ["Coding", "System Design", "Architecture", "Multi level design", "Databases", "Front-end", "Back-end"],
-      companies: ["Coming Soon"]
+      companies: [
+        {
+          name: "Coming Soon",
+          text: "Coming Soon"
+        }
+      ]
     }
   ];
 
@@ -361,14 +392,24 @@ function App() {
                 </div>
                 <div>
                   <h4 className="text-base font-semibold text-gray-300 mb-3">Companies:</h4>
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap items-center gap-6">
                     {role.companies.map((company, companyIndex) => (
-                      <span
-                        key={companyIndex}
-                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
-                      >
-                        {company}
-                      </span>
+                      'logo' in company ? (
+                        <img
+                          key={companyIndex}
+                          src={company.logo}
+                          alt={company.name}
+                          height={company.height}
+                          className="h-auto max-h-10 w-auto object-contain filter brightness-100 hover:brightness-110 transition-all duration-300"
+                        />
+                      ) : (
+                        <span
+                          key={companyIndex}
+                          className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
+                        >
+                          {company.text}
+                        </span>
+                      )
                     ))}
                   </div>
                 </div>
