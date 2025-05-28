@@ -213,11 +213,11 @@ function App() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* Pricing Model Comparison */}
-            <div className="comparison-card">
-              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden">
+            <div className="comparison-card flex flex-col items-center">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
                 Pricing Model
               </h3>
-              <div className="comparison-content">
+              <div className="comparison-content pt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
