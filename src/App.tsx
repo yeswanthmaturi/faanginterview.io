@@ -237,7 +237,7 @@ function App() {
       </div>
 
       {/* How It Works Section */}
-      <section className="relative py-16 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="container mx-auto px-4 mb-8">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
             How It Works
