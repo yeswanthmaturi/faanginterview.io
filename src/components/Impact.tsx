@@ -38,13 +38,13 @@ function Impact() {
   }, []);
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-[#14121E] to-[#0D0C13] overflow-hidden">
+    <section className="relative py-16 bg-gradient-to-br from-[#14121E] to-[#0D0C13] overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 decisive-edge">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
             Our Proven Impact
           </h2>
-          <p className="text-gray-400 text-lg opacity-60">
+          <p className="text-gray-400 text-lg max-w-3xl mx-auto opacity-60">
             (as of May 2025)
           </p>
         </div>
