@@ -360,7 +360,7 @@ function App() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-base font-semibold text-gray-300 mb-3">Companies:</h4>
+                  <h4 className="text-base font-semibold text-gray-300 mb-3">Companies supported:</h4>
                   <div className="flex flex-wrap gap-2.5">
                     {role.companies.map((company, companyIndex) => (
                       <span
