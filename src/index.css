@@ -76,7 +76,7 @@
 
 .feature-card:hover {
   transform: perspective(1000px) rotateX(10deg) translateY(-5px);
-  background: rgba(0, 240, 255, 0.1);
+  background-color: rgba(0, 240, 255, 0.1);
   border-color: rgba(0, 240, 255, 0.2);
 }
 
