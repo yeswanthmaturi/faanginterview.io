@@ -50,7 +50,7 @@ function Impact() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-16">
-          <div className="impact-card bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/20 hover:z-10">
+          <div className="bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/10">
             <span
               ref={el => counterRefs.current[0] = el}
               data-value="50"
@@ -64,7 +64,7 @@ function Impact() {
             </span>
           </div>
 
-          <div className="impact-card bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/20 hover:z-10">
+          <div className="bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/10">
             <span
               ref={el => counterRefs.current[1] = el}
               data-value="92"
@@ -78,7 +78,7 @@ function Impact() {
             </span>
           </div>
 
-          <div className="impact-card bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/20 hover:z-10">
+          <div className="bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/10">
             <span
               ref={el => counterRefs.current[2] = el}
               data-value="40"
@@ -93,7 +93,7 @@ function Impact() {
             </span>
           </div>
 
-          <div className="impact-card bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/20 hover:z-10">
+          <div className="bg-[#1C1A26] rounded-xl p-8 transform transition-all duration-500 hover:scale-105 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#00F0FF]/10">
             <span
               ref={el => counterRefs.current[3] = el}
               data-value="300"
