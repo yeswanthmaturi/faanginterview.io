@@ -59,7 +59,7 @@ function App() {
         },
         {
           name: "DoorDash",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/8/8c/Doordash_logo.svg",
+          logo: "https://upload.wikimedia.org/wikipedia/commons/2/23/DoorDash_Logo.svg",
           height: 25
         }
       ]
@@ -199,122 +199,6 @@ function App() {
 
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#8A2BE2]/20 to-transparent"></div>
-      </div>
-
-      {/* How are we different section */}
-      <div className="relative py-24 px-4">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent animate-gradient">
-              How are we different
-            </h2>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto mb-6">
-              Navigating the competitive landscape of FAANG interviews requires more than just practice; it
-              demands a tailored strategy, expert guidance, and a risk-free approach.
-            </p>
-            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Here's how FAANGInterview.io provides that <span className="decisive-edge">decisive edge</span>:
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Pricing Model Comparison */}
-            <div className="comparison-card">
-              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden">
-                Pricing Model
-              </h3>
-              <div className="comparison-content">
-                <div className="competitor-side">
-                  <div className="flex flex-col mb-2">
-                    <div className="flex items-center">
-                      <X className="h-5 w-5 text-red-500 mr-2" />
-                      <h4 className="text-gray-500 font-bold">The Competition</h4>
-                    </div>
-                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
-                  </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
-                    Hourly fees or per-call charges (uncapped)
-                  </p>
-                </div>
-                <div className="our-side">
-                  <div className="flex items-center mb-2">
-                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
-                  </div>
-                  <div>
-                    <p className="gradient-text font-bold text-lg mt-2">Pay only upon securing your FAANG offer.*</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Interviewer Quality Comparison */}
-            <div className="comparison-card">
-              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden tracking-tight">
-                Interviewer Quality
-              </h3>
-              <div className="comparison-content">
-                <div className="competitor-side">
-                  <div className="flex flex-col mb-2">
-                    <div className="flex items-center">
-                      <X className="h-5 w-5 text-red-500 mr-2" />
-                      <h4 className="text-gray-500 font-bold">The Competition</h4>
-                    </div>
-                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
-                  </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
-                    Variable, often led by unverified or generalist FAANG individuals
-                  </p>
-                </div>
-                <div className="our-side">
-                  <div className="flex items-center mb-2">
-                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
-                  </div>
-                  <p className="gradient-text font-bold">
-                    Elite FAANG Interviewer Network: Dedicated, rigorously trained, and hand-picked engineers laser-focused on your success.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Prep Strategy Comparison */}
-            <div className="comparison-card">
-              <h3 className="title-gradient mb-6 text-center text-lg whitespace-nowrap overflow-hidden">
-                Prep Strategy
-              </h3>
-              <div className="comparison-content">
-                <div className="competitor-side">
-                  <div className="flex flex-col mb-2">
-                    <div className="flex items-center">
-                      <X className="h-5 w-5 text-red-500 mr-2" />
-                      <h4 className="text-gray-500 font-bold">The Competition</h4>
-                    </div>
-                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
-                  </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
-                    Generic & monotonous training that is not tailored for you
-                  </p>
-                </div>
-                <div className="our-side">
-                  <div className="flex items-center mb-2">
-                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
-                  </div>
-                  <p className="gradient-text font-bold">
-                    Hyper-Personalized Curriculum: Custom-designed training action plan adapting to your unique skills, strengths, and specific areas for improvement.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold text-[#00F0FF] mb-4 animate-pulse">
-              The FAANGInterview.io Difference: Engineered for Results
-            </h3>
-          </div>
-        </div>
       </div>
 
       {/* How It Works Section */}
