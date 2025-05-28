@@ -7,7 +7,7 @@ function App() {
     {
       icon: Users,
       title: "Initial Consultation",
-      subtitle: "Free Mock Interview", 
+      subtitle: "Free Mock Interview",
       description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer."
     },
     {
@@ -49,18 +49,18 @@ function App() {
       companies: [
         {
           name: "Meta",
-          logo: "https://scontent-lga3-2.xx.fbcdn.net/v/t39.8562-6/256769074_3041875812751097_7340546493404727512_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=f537c7&_nc_ohc=50AlvIIUs7cQ7kNvwEUkdut&_nc_oc=AdkuGsaTQkTHW_F-KYAcLIrPRDqakGH76O5v20BDMzdwxW-7VaYXRNaOOJaNA_q1iRsB3kURJbzb0v5Y7FhjXore&_nc_zt=14&_nc_ht=scontent-lga3-2.xx&_nc_gid=DTUR5gG7BcpGVQJuJJSiuw&oh=00_AfKvAaFm_cXsyhJOy6FZkz6IwS7xyq84E8O7SLvZbRg4Yg&oe=683C3BAB",
-          height: 35
+          logo: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png",
+          height: 40
         },
         {
           name: "Amazon",
-          logo: "https://assets.aboutamazon.com/2e/d7/ac71f1f344c39f8949f48fc89e71/amazon-logo-squid-ink-smile-orange.png",
-          height: 35
+          logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+          height: 30
         },
         {
           name: "DoorDash",
-          logo: "https://images.seeklogo.com/logo-png/33/1/doordash-logo-png_seeklogo-338166.png",
-          height: 35
+          logo: "https://upload.wikimedia.org/wikipedia/en/4/41/DoorDash_Logo.svg",
+          height: 40
         }
       ]
     },
@@ -70,8 +70,8 @@ function App() {
       companies: [
         {
           name: "Amazon",
-          logo: "https://assets.aboutamazon.com/2e/d7/ac71f1f344c39f8949f48fc89e71/amazon-logo-squid-ink-smile-orange.png",
-          height: 35
+          logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+          height: 30
         },
         {
           name: "More companies",
@@ -284,7 +284,7 @@ function App() {
                           src={company.logo}
                           alt={company.name}
                           height={company.height}
-                          className="h-[35px] w-auto object-contain filter brightness-100 hover:brightness-110 transition-all duration-300"
+                          className="h-auto max-h-10 w-auto object-contain filter brightness-100 hover:brightness-110 transition-all duration-300"
                         />
                       ) : (
                         <span
