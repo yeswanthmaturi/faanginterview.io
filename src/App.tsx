@@ -73,7 +73,7 @@ function App() {
   };
 
   const handleScrollToSuccessStories = () => {
-    const successStoriesSection = document.querySelector('section:has(> div > div > h2:contains("Success Stories"))');
+    const successStoriesSection = document.getElementById('success-stories-section');
     if (successStoriesSection) {
       successStoriesSection.scrollIntoView({ behavior: 'smooth' });
     }
