@@ -214,10 +214,10 @@ function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Pricing Model Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-8">
                 Pricing Model
               </h3>
-              <div className="comparison-content pt-8">
+              <div className="comparison-content mt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
@@ -244,10 +244,10 @@ function App() {
 
             {/* Interviewer Quality Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-8">
                 Interviewer Quality
               </h3>
-              <div className="comparison-content pt-8">
+              <div className="comparison-content mt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
@@ -274,10 +274,10 @@ function App() {
 
             {/* Prep Strategy Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-8">
                 Prep Strategy
               </h3>
-              <div className="comparison-content pt-8">
+              <div className="comparison-content mt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
