@@ -3,6 +3,7 @@ import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpe
 import Typewriter from 'typewriter-effect';
 import InterviewShareBanner from './components/InterviewShareBanner';
 import Impact from './components/Impact';
+import SuccessStories from './components/SuccessStories';
 
 function App() {
   const steps = [
@@ -404,9 +405,9 @@ function App() {
         </div>
       </section>
 
-      {/* Interview Share Banner */}
-      <InterviewShareBanner />
       <Impact />
+      <SuccessStories />
+      <InterviewShareBanner />
     </div>
   );
 }
