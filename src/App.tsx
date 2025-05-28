@@ -7,48 +7,149 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const horizontalScrollRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeSection, setActiveSection] = useState(0);
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const stepsContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    const container = horizontalScrollRef.current;
-    
-    if (!section || !container) return;
+    const container = stepsContainerRef.current;
+    if (!container) return;
 
-    const scrollWidth = container.scrollWidth;
-    const viewportWidth = window.innerWidth;
-    const scrollDistance = scrollWidth - viewportWidth;
+    let scrollInterval: number | null = null;
+    const scrollSpeed = 15;
+    const edgeThreshold = 300;
 
-    gsap.to(container, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: `+=${scrollDistance}`,
-        pin: true,
-        scrub: 1,
-        invalidateOnRefresh: true,
+    const startAutoScroll = (direction: 'left' | 'right', speed: number) => {
+      if (scrollInterval) {
+        window.clearInterval(scrollInterval);
       }
-    });
+      scrollInterval = window.setInterval(() => {
+        container.scrollLeft += direction === 'left' ? -speed : speed;
+      }, 16);
+    };
 
-    // Animate cards on scroll
-    const cards = container.querySelectorAll('.step-card');
-    cards.forEach((card, i) => {
-      gsap.from(card, {
+    const stopAutoScroll = () => {
+      if (scrollInterval) {
+        window.clearInterval(scrollInterval);
+        scrollInterval = null;
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const mouseX = e.clientX;
+      
+      const distanceFromLeft = mouseX - rect.left;
+      const distanceFromRight = rect.right - mouseX;
+      
+      if (distanceFromLeft < edgeThreshold) {
+        const speed = Math.max(5, (edgeThreshold - distanceFromLeft) / 10);
+        startAutoScroll('left', speed);
+      } else if (distanceFromRight < edgeThreshold) {
+        const speed = Math.max(5, (edgeThreshold - distanceFromRight) / 10);
+        startAutoScroll('right', speed);
+      } else {
+        stopAutoScroll();
+      }
+    };
+
+    const handleWheel = (e: WheelEvent) => {
+      if (!e.shiftKey) {
+        e.preventDefault();
+        container.scrollLeft += e.deltaY;
+      }
+    };
+
+    container.addEventListener('mousemove', handleMouseMove);
+    container.addEventListener('mouseleave', stopAutoScroll);
+    container.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      container.removeEventListener('mousemove', handleMouseMove);
+      container.removeEventListener('mouseleave', stopAutoScroll);
+      container.removeEventListener('wheel', handleWheel);
+      stopAutoScroll();
+    };
+  }, []);
+
+  useEffect(() => {
+    const sections = sectionsRef.current;
+
+    sections.forEach((section, index) => {
+      gsap.from(section.querySelector('.scroll-section-content'), {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top center',
+          end: 'bottom center',
+          toggleActions: 'play none none reverse',
+        },
+        y: 100,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+      });
+
+      gsap.from(section.querySelector('.floating-element'), {
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1,
+        },
+        y: 100,
         opacity: 0,
         scale: 0.8,
-        duration: 1,
-        scrollTrigger: {
-          trigger: card,
-          containerAnimation: ScrollTrigger.getById("container"),
-          start: "left center",
-          toggleActions: "play none none reverse"
-        }
       });
     });
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = sections.findIndex((section) => section === entry.target);
+            setActiveSection(index);
+            entry.target.querySelector('.section-gradient')?.classList.add('visible');
+          } else {
+            entry.target.querySelector('.section-gradient')?.classList.remove('visible');
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => {
+      observerRef.current?.observe(section);
+    });
+
+    return () => {
+      observerRef.current?.disconnect();
+    };
   }, []);
+
+  const features = [
+    {
+      title: "Initial Consultation",
+      subtitle: "Free Mock Interview",
+      icon: Users,
+      description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer.",
+      color: "#00F0FF"
+    },
+    {
+      title: "Personalized Learning",
+      subtitle: "Custom Pathway",
+      icon: Target,
+      description: "Leveraging insights from your target company and role, we develop a meticulously crafted preparation strategy designed to optimize your success.",
+      color: "#8A2BE2"
+    },
+    {
+      title: "Targeted Training",
+      subtitle: "Expert Curriculum",
+      icon: BookOpen,
+      description: "Access role-specific training materials, video courses, and practice exercises crafted by FAANG engineers.",
+      color: "#00F0FF"
+    }
+  ];
 
   const steps = [
     {
@@ -309,35 +410,91 @@ function App() {
         </div>
       </div>
 
-      <div ref={sectionRef} className="horizontal-scroll-container">
-        <div className="container mx-auto px-4 py-12 text-center">
-          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+      {/* How It Works Section */}
+      <div className="relative py-24 overflow-hidden">
+        <div className="container mx-auto px-4 mb-12">
+          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent animate-gradient">
             How It Works
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+          <p className="text-gray-400 text-lg text-center max-w-3xl mx-auto">
             Our proven 5-step process to transform you into a confident FAANG-ready candidate
           </p>
         </div>
-        
-        <div ref={horizontalScrollRef} className="horizontal-scroll-section">
-          {steps.map((step, index) => (
-            <div key={index} className="step-card">
-              <div className="step-content">
-                <div className="step-number">{index + 1}</div>
-                <step.icon className="step-icon" />
-                <h3 className="step-title">{step.title}</h3>
-                <h4 className="step-subtitle">{step.subtitle}</h4>
-                <p className="step-description">{step.description}</p>
+
+        <div 
+          ref={stepsContainerRef}
+          className="steps-container relative flex overflow-x-auto pb-12 snap-x snap-mandatory custom-scrollbar"
+          style={{ paddingTop: '4rem' }}
+        >
+          <div className="flex space-x-6 px-[calc(50vw-22rem)] pb-8">
+            {steps.map((step, index) => (
+              <div
+                key={index}
+                className="step-card relative flex-none w-[22rem] snap-center"
+              >
+                <div className="relative h-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-[#8A2BE2]/20 transform transition-all duration-500 hover:scale-105 hover:border-[#00F0FF]/40">
+                  <div className="absolute -top-8 -left-4 w-12 h-12 bg-gradient-to-br from-[#00F0FF] to-[#8A2BE2] rounded-xl flex items-center justify-center text-2xl font-bold text-white">
+                    {index + 1}
+                  </div>
+                  <div className="mt-6 mb-4">
+                    <step.icon className="w-12 h-12 text-[#00F0FF]" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+                    {step.title}
+                  </h3>
+                  <h4 className="text-xl font-semibold mb-4 text-[#8A2BE2]">
+                    {step.subtitle}
+                  </h4>
+                  <p className="text-gray-300 leading-relaxed">
+                    {step.description}
+                  </p>
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#0F0F0F] to-transparent pointer-events-none opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        
-        <div className="scroll-gradient-left" />
-        <div className="scroll-gradient-right" />
+
+        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
+        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none" />
+        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0A0A0A] to-transparent pointer-events-none" />
       </div>
 
-      {/* Rest of your components remain unchanged */}
+      <div className="vertical-scroll-section">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            ref={(el) => (sectionsRef.current[index] = el as HTMLDivElement)}
+            className="scroll-section"
+          >
+            <div className="section-gradient" />
+            <div className="scroll-section-content max-w-7xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                  <feature.icon
+                    className="floating-element feature-icon"
+                    style={{ color: feature.color }}
+                  />
+                  <h2 className="text-5xl font-bold mb-4 gradient-text">
+                    {feature.title}
+                  </h2>
+                  <h3 className="text-3xl font-semibold mb-6 text-[#8A2BE2]">
+                    {feature.subtitle}
+                  </h3>
+                  <p className="text-xl text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+                <div className="feature-card floating-element">
+                  <div className="aspect-square rounded-xl bg-gradient-to-br from-[#00F0FF]/20 to-[#8A2BE2]/20 flex items-center justify-center">
+                    <feature.icon className="h-24 w-24" style={{ color: feature.color }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
