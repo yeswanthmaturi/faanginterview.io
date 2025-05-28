@@ -5,6 +5,7 @@ import InterviewShareBanner from './components/InterviewShareBanner';
 import Impact from './components/Impact';
 import SuccessStories from './components/SuccessStories';
 import About from './components/About';
+import Footer from './components/Footer';
 
 function App() {
   const steps = [
@@ -411,6 +412,7 @@ function App() {
       <Impact />
       <SuccessStories />
       <About />
+      <Footer />
     </div>
   );
 }
