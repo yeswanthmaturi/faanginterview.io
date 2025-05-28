@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
-import InterviewShareBanner from './components/InterviewShareBanner';
-import Impact from './components/Impact';
-import SuccessStories from './components/SuccessStories';
-import About from './components/About';
-import Footer from './components/Footer';
+
+// Lazy load components
+const InterviewShareBanner = lazy(() => import('./components/InterviewShareBanner'));
+const Impact = lazy(() => import('./components/Impact'));
+const SuccessStories = lazy(() => import('./components/SuccessStories'));
+const About = lazy(() => import('./components/About'));
+const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
   const steps = [
@@ -417,14 +419,16 @@ function App() {
         </div>
       </section>
 
-      {/* Interview Share Banner */}
-      <InterviewShareBanner />
-      <Impact />
-      <section id="success-stories">
-        <SuccessStories />
-      </section>
-      <About />
-      <Footer />
+      {/* Wrap lazy loaded components in Suspense */}
+      <Suspense fallback={<div className="h-96 flex items-center justify-center">Loading...</div>}>
+        <InterviewShareBanner />
+        <Impact />
+        <section id="success-stories">
+          <SuccessStories />
+        </section>
+        <About />
+        <Footer />
+      </Suspense>
     </div>
   );
 }

@@ -366,3 +366,43 @@
     background-position: 0% 50%;
   }
 }
+
+@media (max-width: 768px) {
+  .comparison-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .comparison-card:hover .comparison-content {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .step-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .feature-card:hover {
+    transform: none;
+  }
+  
+  .role-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .highlight-text::before,
+  .highlight-text::after {
+    animation: none;
+  }
+  
+  .comparison-content::before {
+    display: none;
+  }
+  
+  .animate-gradient {
+    animation: none;
+    background-size: 100% 100%;
+  }
+}
