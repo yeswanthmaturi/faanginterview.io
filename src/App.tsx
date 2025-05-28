@@ -1,45 +1,50 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [activeSection, setActiveSection] = useState(0);
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const stepsRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const rail = railRef.current;
     if (!rail) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      rail.scrollLeft += e.deltaY;
+    };
 
-    rail.querySelectorAll('.step').forEach((step) => observer.observe(step));
+    const handleMouseDown = (e: MouseEvent) => {
+      const startX = e.pageX - rail.offsetLeft;
+      const scrollLeft = rail.scrollLeft;
+      let isDown = true;
 
-    return () => observer.disconnect();
+      const handleMouseMove = (e: MouseEvent) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - rail.offsetLeft;
+        const walk = (x - startX) * 2;
+        rail.scrollLeft = scrollLeft - walk;
+      };
+
+      const handleMouseUp = () => {
+        isDown = false;
+        document.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseup', handleMouseUp);
+      };
+
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+    };
+
+    rail.addEventListener('wheel', handleWheel, { passive: false });
+    rail.addEventListener('mousedown', handleMouseDown);
+
+    return () => {
+      rail.removeEventListener('wheel', handleWheel);
+      rail.removeEventListener('mousedown', handleMouseDown);
+    };
   }, []);
-
-  const scrollRail = (direction: 'left' | 'right') => {
-    const rail = railRef.current;
-    if (!rail) return;
-
-    const scrollAmount = direction === 'left' ? -320 : 320;
-    rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  };
 
   const steps = [
     {
@@ -325,7 +330,7 @@ function App() {
       </div>
 
       {/* How It Works Section */}
-      <section className="relative py-16 overflow-hidden" ref={stepsRef}>
+      <section className="relative py-16 overflow-hidden">
         <div className="container mx-auto px-4 mb-8">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
             How It Works
@@ -336,14 +341,6 @@ function App() {
         </div>
 
         <div className="relative">
-          <button 
-            onClick={() => scrollRail('left')}
-            className="nav-button left"
-            aria-label="Scroll left"
-          >
-            ‹
-          </button>
-          
           <div 
             ref={railRef}
             className="steps-rail"
@@ -371,14 +368,6 @@ function App() {
               </article>
             ))}
           </div>
-
-          <button 
-            onClick={() => scrollRail('right')}
-            className="nav-button right"
-            aria-label="Scroll right"
-          >
-            ›
-          </button>
         </div>
       </section>
 
@@ -386,7 +375,6 @@ function App() {
         {features.map((feature, index) => (
           <div
             key={index}
-            ref={(el) => (sectionsRef.current[index] = el as HTMLDivElement)}
             className="scroll-section"
           >
             <div className="section-gradient" />
