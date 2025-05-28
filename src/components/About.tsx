@@ -93,8 +93,8 @@ function About() {
               Landing a job at a top tech company can feel like a huge challenge. That's where we come in. Think of us as your experienced guides who've been through the FAANG interview process ourselves and cracked them multiple times.
             </p>
 
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              We understand the interview strategies and expectations at top tech companies and we're passionate about making that knowledge accessible to you. We're not just about practice questions; we're your partners from the moment you apply until you get that exciting offer.
+            <p className="text-gray-300 text-lg leading-relaxed mb-8 bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] p-6 rounded-xl border border-[#8A2BE2]/20">
+              We understand the interview strategies and expectations at top tech companies and we're passionate about making that knowledge accessible to you. <span className="font-semibold bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">We're not just about practice questions; we're your partners from the moment you apply until you get that exciting offer.</span>
             </p>
 
             <p className="text-gray-300 text-lg leading-relaxed">
