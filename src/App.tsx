@@ -240,7 +240,7 @@ function App() {
                     </div>
                     <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
                   </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                  <p className="text-red-500">
                     Hourly fees or per-call charges (uncapped)
                   </p>
                 </div>
@@ -270,7 +270,7 @@ function App() {
                     </div>
                     <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
                   </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                  <p className="text-red-500">
                     Variable, often led by unverified or generalist FAANG individuals
                   </p>
                 </div>
@@ -300,7 +300,7 @@ function App() {
                     </div>
                     <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
                   </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                  <p className="text-red-500">
                     Generic & monotonous training that is not tailored for you
                   </p>
                 </div>
