@@ -1,46 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 function App() {
-  const [activeSection, setActiveSection] = useState(0);
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
-  const observerRef = useRef<IntersectionObserver | null>(null);
-  const stepsRef = useRef<HTMLDivElement>(null);
-  const railRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const rail = railRef.current;
-    if (!rail) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    rail.querySelectorAll('.step').forEach((step) => observer.observe(step));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollRail = (direction: 'left' | 'right') => {
-    const rail = railRef.current;
-    if (!rail) return;
-
-    const scrollAmount = direction === 'left' ? -320 : 320;
-    rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-  };
-
   const steps = [
     {
       icon: Users,
@@ -71,30 +33,12 @@ function App() {
       title: "Masterful Offer",
       subtitle: "Negotiation",
       description: "Unlock your earning potential with our comprehensive negotiation coaching, proven to increase FAANG offers by an average of $30-50K+. Secure the compensation you deserve."
-    }
-  ];
-
-  const features = [
-    {
-      title: "Initial Consultation",
-      subtitle: "Free Mock Interview",
-      icon: Users,
-      description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer.",
-      color: "#00F0FF"
     },
     {
-      title: "Personalized Learning",
-      subtitle: "Custom Pathway",
-      icon: Target,
-      description: "Leveraging insights from your target company and role, we develop a meticulously crafted preparation strategy designed to optimize your success.",
-      color: "#8A2BE2"
-    },
-    {
-      title: "Targeted Training",
-      subtitle: "Expert Curriculum",
-      icon: BookOpen,
-      description: "Access role-specific training materials, video courses, and practice exercises crafted by FAANG engineers.",
-      color: "#00F0FF"
+      icon: CheckCircle2,
+      title: "Success Guarantee",
+      subtitle: "Risk-Free Journey",
+      description: "Our proven methodology and expert guidance ensure your success. We stand behind our process with a satisfaction guarantee."
     }
   ];
 
@@ -325,40 +269,29 @@ function App() {
       </div>
 
       {/* How It Works Section */}
-      <section className="relative py-16 overflow-hidden" ref={stepsRef}>
-        <div className="container mx-auto px-4 mb-8">
-          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
-            How It Works
-          </h2>
-          <p className="text-gray-400 text-lg text-center max-w-3xl mx-auto">
-            Our proven 5-step process to transform you into a confident FAANG-ready candidate
-          </p>
-        </div>
+      <section className="relative py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+              How It Works
+            </h2>
+            <p className="text-gray-400 text-lg max-w-3xl mx-auto">
+              Our proven 6-step process to transform you into a confident FAANG-ready candidate
+            </p>
+          </div>
 
-        <div className="relative">
-          <button 
-            onClick={() => scrollRail('left')}
-            className="nav-button left"
-            aria-label="Scroll left"
-          >
-            ‹
-          </button>
-          
-          <div 
-            ref={railRef}
-            className="steps-rail"
-            role="list"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {steps.map((step, index) => (
-              <article
+              <div
                 key={index}
-                className="step"
-                role="listitem"
-                tabIndex={0}
-                aria-label={`Step ${index + 1} – ${step.title}`}
+                className="step-card bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-[#8A2BE2]/20 relative transform transition-all duration-500 hover:scale-[1.02] hover:border-[#00F0FF]/40"
               >
-                <div className="step-number">{index + 1}</div>
-                <step.icon className="step-icon" aria-hidden="true" />
+                <div className="absolute -top-4 -left-4 w-10 h-10 bg-gradient-to-br from-[#00F0FF] to-[#8A2BE2] rounded-xl flex items-center justify-center text-xl font-bold text-white">
+                  {index + 1}
+                </div>
+                <div className="mt-4 mb-4">
+                  <step.icon className="w-10 h-10 text-[#00F0FF]" />
+                </div>
                 <h3 className="text-xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
                   {step.title}
                 </h3>
@@ -368,55 +301,11 @@ function App() {
                 <p className="text-gray-300 leading-relaxed text-sm">
                   {step.description}
                 </p>
-              </article>
+              </div>
             ))}
           </div>
-
-          <button 
-            onClick={() => scrollRail('right')}
-            className="nav-button right"
-            aria-label="Scroll right"
-          >
-            ›
-          </button>
         </div>
       </section>
-
-      <div className="vertical-scroll-section">
-        {features.map((feature, index) => (
-          <div
-            key={index}
-            ref={(el) => (sectionsRef.current[index] = el as HTMLDivElement)}
-            className="scroll-section"
-          >
-            <div className="section-gradient" />
-            <div className="scroll-section-content max-w-7xl mx-auto px-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div>
-                  <feature.icon
-                    className="floating-element feature-icon"
-                    style={{ color: feature.color }}
-                  />
-                  <h2 className="text-5xl font-bold mb-4 gradient-text">
-                    {feature.title}
-                  </h2>
-                  <h3 className="text-3xl font-semibold mb-6 text-[#8A2BE2]">
-                    {feature.subtitle}
-                  </h3>
-                  <p className="text-xl text-gray-300 leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-                <div className="feature-card floating-element">
-                  <div className="aspect-square rounded-xl bg-gradient-to-br from-[#00F0FF]/20 to-[#8A2BE2]/20 flex items-center justify-center">
-                    <feature.icon className="h-24 w-24" style={{ color: feature.color }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
