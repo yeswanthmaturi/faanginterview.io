@@ -106,14 +106,41 @@
   transform: translateZ(20px);
 }
 
-.step h3 {
+.card-header {
   transform: translateZ(15px);
-  margin-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
 }
 
-.step h4 {
-  transform: translateZ(12px);
-  margin-bottom: 1rem;
+.card-header .title,
+.card-header .subtitle {
+  background: linear-gradient(135deg, #00F0FF, #8A2BE2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.card-header .subtitle {
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+}
+
+.step:hover .card-header {
+  transform: translateZ(25px);
+}
+
+.step:hover .card-header .title,
+.step:hover .card-header .subtitle {
+  background: linear-gradient(135deg, #00F0FF 20%, #8A2BE2 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 0.02em;
 }
 
 .step p {
