@@ -10,146 +10,36 @@ function App() {
   const [activeSection, setActiveSection] = useState(0);
   const sectionsRef = useRef<HTMLDivElement[]>([]);
   const observerRef = useRef<IntersectionObserver | null>(null);
-  const stepsContainerRef = useRef<HTMLDivElement>(null);
+  const stepsRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const container = stepsContainerRef.current;
-    if (!container) return;
+    const rail = railRef.current;
+    if (!rail) return;
 
-    let scrollInterval: number | null = null;
-    const scrollSpeed = 15;
-    const edgeThreshold = 300;
-
-    const startAutoScroll = (direction: 'left' | 'right', speed: number) => {
-      if (scrollInterval) {
-        window.clearInterval(scrollInterval);
-      }
-      scrollInterval = window.setInterval(() => {
-        container.scrollLeft += direction === 'left' ? -speed : speed;
-      }, 16);
-    };
-
-    const stopAutoScroll = () => {
-      if (scrollInterval) {
-        window.clearInterval(scrollInterval);
-        scrollInterval = null;
-      }
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX;
-      
-      const distanceFromLeft = mouseX - rect.left;
-      const distanceFromRight = rect.right - mouseX;
-      
-      if (distanceFromLeft < edgeThreshold) {
-        const speed = Math.max(5, (edgeThreshold - distanceFromLeft) / 10);
-        startAutoScroll('left', speed);
-      } else if (distanceFromRight < edgeThreshold) {
-        const speed = Math.max(5, (edgeThreshold - distanceFromRight) / 10);
-        startAutoScroll('right', speed);
-      } else {
-        stopAutoScroll();
-      }
-    };
-
-    const handleWheel = (e: WheelEvent) => {
-      if (!e.shiftKey) {
-        e.preventDefault();
-        container.scrollLeft += e.deltaY;
-      }
-    };
-
-    container.addEventListener('mousemove', handleMouseMove);
-    container.addEventListener('mouseleave', stopAutoScroll);
-    container.addEventListener('wheel', handleWheel, { passive: false });
-
-    return () => {
-      container.removeEventListener('mousemove', handleMouseMove);
-      container.removeEventListener('mouseleave', stopAutoScroll);
-      container.removeEventListener('wheel', handleWheel);
-      stopAutoScroll();
-    };
-  }, []);
-
-  useEffect(() => {
-    const sections = sectionsRef.current;
-
-    sections.forEach((section, index) => {
-      gsap.from(section.querySelector('.scroll-section-content'), {
-        scrollTrigger: {
-          trigger: section,
-          start: 'top center',
-          end: 'bottom center',
-          toggleActions: 'play none none reverse',
-        },
-        y: 100,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-      });
-
-      gsap.from(section.querySelector('.floating-element'), {
-        scrollTrigger: {
-          trigger: section,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-        },
-        y: 100,
-        opacity: 0,
-        scale: 0.8,
-      });
-    });
-
-    observerRef.current = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = sections.findIndex((section) => section === entry.target);
-            setActiveSection(index);
-            entry.target.querySelector('.section-gradient')?.classList.add('visible');
-          } else {
-            entry.target.querySelector('.section-gradient')?.classList.remove('visible');
+            entry.target.classList.add('show');
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.3 }
     );
 
-    sections.forEach((section) => {
-      observerRef.current?.observe(section);
-    });
+    rail.querySelectorAll('.step').forEach((step) => observer.observe(step));
 
-    return () => {
-      observerRef.current?.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
-  const features = [
-    {
-      title: "Initial Consultation",
-      subtitle: "Free Mock Interview",
-      icon: Users,
-      description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer.",
-      color: "#00F0FF"
-    },
-    {
-      title: "Personalized Learning",
-      subtitle: "Custom Pathway",
-      icon: Target,
-      description: "Leveraging insights from your target company and role, we develop a meticulously crafted preparation strategy designed to optimize your success.",
-      color: "#8A2BE2"
-    },
-    {
-      title: "Targeted Training",
-      subtitle: "Expert Curriculum",
-      icon: BookOpen,
-      description: "Access role-specific training materials, video courses, and practice exercises crafted by FAANG engineers.",
-      color: "#00F0FF"
-    }
-  ];
+  const scrollRail = (direction: 'left' | 'right') => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const scrollAmount = direction === 'left' ? -rail.clientWidth : rail.clientWidth;
+    rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
 
   const steps = [
     {
@@ -181,6 +71,30 @@ function App() {
       title: "Masterful Offer",
       subtitle: "Negotiation",
       description: "Unlock your earning potential with our comprehensive negotiation coaching, proven to increase FAANG offers by an average of $30-50K+. Secure the compensation you deserve."
+    }
+  ];
+
+  const features = [
+    {
+      title: "Initial Consultation",
+      subtitle: "Free Mock Interview",
+      icon: Users,
+      description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer.",
+      color: "#00F0FF"
+    },
+    {
+      title: "Personalized Learning",
+      subtitle: "Custom Pathway",
+      icon: Target,
+      description: "Leveraging insights from your target company and role, we develop a meticulously crafted preparation strategy designed to optimize your success.",
+      color: "#8A2BE2"
+    },
+    {
+      title: "Targeted Training",
+      subtitle: "Expert Curriculum",
+      icon: BookOpen,
+      description: "Access role-specific training materials, video courses, and practice exercises crafted by FAANG engineers.",
+      color: "#00F0FF"
     }
   ];
 
@@ -411,9 +325,9 @@ function App() {
       </div>
 
       {/* How It Works Section */}
-      <div className="relative py-24 overflow-hidden">
+      <section className="relative py-24 overflow-hidden" ref={stepsRef}>
         <div className="container mx-auto px-4 mb-12">
-          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent animate-gradient">
+          <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
             How It Works
           </h2>
           <p className="text-gray-400 text-lg text-center max-w-3xl mx-auto">
@@ -421,44 +335,56 @@ function App() {
           </p>
         </div>
 
-        <div 
-          ref={stepsContainerRef}
-          className="steps-container relative flex overflow-x-auto pb-12 snap-x snap-mandatory custom-scrollbar"
-          style={{ paddingTop: '4rem' }}
-        >
-          <div className="flex space-x-6 px-[calc(50vw-22rem)] pb-8">
+        <div className="relative">
+          <button 
+            onClick={() => scrollRail('left')}
+            className="nav-button left"
+            aria-label="Scroll left"
+          >
+            ‹
+          </button>
+          
+          <div 
+            ref={railRef}
+            className="steps-rail"
+            role="list"
+          >
             {steps.map((step, index) => (
-              <div
+              <article
                 key={index}
-                className="step-card relative flex-none w-[22rem] snap-center"
+                className="step"
+                role="listitem"
+                tabIndex={0}
+                aria-label={`Step ${index + 1} – ${step.title}`}
               >
-                <div className="relative h-full bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-6 border border-[#8A2BE2]/20 transform transition-all duration-500 hover:scale-105 hover:border-[#00F0FF]/40">
-                  <div className="absolute -top-8 -left-4 w-12 h-12 bg-gradient-to-br from-[#00F0FF] to-[#8A2BE2] rounded-xl flex items-center justify-center text-2xl font-bold text-white">
-                    {index + 1}
-                  </div>
-                  <div className="mt-6 mb-4">
-                    <step.icon className="w-12 h-12 text-[#00F0FF]" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
-                    {step.title}
-                  </h3>
-                  <h4 className="text-xl font-semibold mb-4 text-[#8A2BE2]">
-                    {step.subtitle}
-                  </h4>
-                  <p className="text-gray-300 leading-relaxed">
-                    {step.description}
-                  </p>
-                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-[#0F0F0F] to-transparent pointer-events-none opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                </div>
-              </div>
+                <div className="step-number">{index + 1}</div>
+                <step.icon className="step-icon" aria-hidden="true" />
+                <h3 className="text-2xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+                  {step.title}
+                </h3>
+                <h4 className="text-xl font-semibold mb-4 text-[#8A2BE2]">
+                  {step.subtitle}
+                </h4>
+                <p className="text-gray-300 leading-relaxed">
+                  {step.description}
+                </p>
+              </article>
             ))}
           </div>
+
+          <button 
+            onClick={() => scrollRail('right')}
+            className="nav-button right"
+            aria-label="Scroll right"
+          >
+            ›
+          </button>
         </div>
 
         <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
         <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none" />
         <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0A0A0A] to-transparent pointer-events-none" />
-      </div>
+      </section>
 
       <div className="vertical-scroll-section">
         {features.map((feature, index) => (
