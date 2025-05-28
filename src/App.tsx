@@ -60,6 +60,13 @@ function App() {
     }
   ];
 
+  const handleScrollToRoles = () => {
+    const rolesSection = document.getElementById('roles-section');
+    if (rolesSection) {
+      rolesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       {/* Hero Section */}
@@ -155,7 +162,10 @@ function App() {
             </div>
             
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6">
-              <button className="flex items-center justify-center space-x-3 rounded-full bg-[#00F0FF] px-8 py-4 font-semibold text-black transition-all duration-300 ease-in-out hover:bg-opacity-80 hover:transform hover:scale-105">
+              <button 
+                onClick={handleScrollToRoles}
+                className="flex items-center justify-center space-x-3 rounded-full bg-[#00F0FF] px-8 py-4 font-semibold text-black transition-all duration-300 ease-in-out hover:bg-opacity-80 hover:transform hover:scale-105"
+              >
                 <span>See our supported roles and companies</span>
                 <ArrowRight className="h-6 w-6" />
               </button>
@@ -326,7 +336,7 @@ function App() {
       </section>
 
       {/* Roles We Support Section */}
-      <section className="relative py-16 bg-[#0F0F0F]">
+      <section id="roles-section" className="relative py-16 bg-[#0F0F0F]">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
