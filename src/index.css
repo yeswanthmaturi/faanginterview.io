@@ -375,12 +375,6 @@
     0 0 30px -8px rgba(138, 43, 226, 0.3);
 }
 
-.comparison-card:hover h3 {
-  transform: scale(1.15) translateZ(30px);
-  text-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
-  letter-spacing: 0.05em;
-}
-
 .comparison-content {
   @apply rounded-lg bg-[#1A1A1A] p-6;
   position: relative;
