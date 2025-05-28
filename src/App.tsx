@@ -99,7 +99,7 @@ function App() {
         {/* Hero Content */}
         <div className="container mx-auto px-4 pt-32 pb-24">
           <div className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center">
-            <div className="mb-8 max-w-4xl">
+            <div className="mb-6">
               <h1 className="bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
                 Succeed at your FAANG Interview
               </h1>
@@ -123,13 +123,13 @@ function App() {
                 />
               </div>
             </div>
-            <div className="mb-10 max-w-2xl space-y-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-2xl font-bold tracking-tight text-transparent">
+            <div className="mb-8 max-w-2xl space-y-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-2xl font-bold tracking-tight text-transparent">
               <div>Stop stressing, start succeeding.</div>
               <div>Land your dream job at a top tech company.</div>
             </div>
-            <div className="mb-16 max-w-3xl space-y-10" style={{ animation: 'fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1)' }}>
+            <div className="mb-12 max-w-3xl space-y-8" style={{ animation: 'fadeInUp 1.2s cubic-bezier(0.4, 0, 0.2, 1)' }}>
               <div className="highlight-text rounded-lg p-8 transition-all duration-500 ease-in-out hover:transform hover:scale-[1.02]">
-                <p className="hero-question text-2xl font-light leading-relaxed tracking-wide text-gray-200 mb-6">
+                <p className="hero-question text-2xl font-light leading-relaxed tracking-wide text-gray-200 mb-4">
                   Got a FAANG interview on the horizon? Feeling Overwhelmed?
                 </p>
                 <p className="text-xl font-bold text-[#00F0FF]">
