@@ -214,29 +214,31 @@ function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Pricing Model Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
-                Pricing Model
-              </h3>
-              <div className="comparison-content pt-4">
-                <div className="competitor-side">
-                  <div className="flex flex-col mb-2">
-                    <div className="flex items-center">
-                      <X className="h-5 w-5 text-red-500 mr-2" />
-                      <h4 className="text-gray-500 font-bold">The Competition</h4>
+              <div className="comparison-content relative w-full">
+                <h3 className="title-gradient text-center text-lg tracking-tight leading-none absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1A1A1A] px-4">
+                  Pricing Model
+                </h3>
+                <div className="pt-8">
+                  <div className="competitor-side">
+                    <div className="flex flex-col mb-2">
+                      <div className="flex items-center">
+                        <X className="h-5 w-5 text-red-500 mr-2" />
+                        <h4 className="text-gray-500 font-bold">The Competition</h4>
+                      </div>
+                      <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
                     </div>
-                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
+                    <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                      Hourly fees or per-call charges (uncapped)
+                    </p>
                   </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
-                    Hourly fees or per-call charges (uncapped)
-                  </p>
-                </div>
-                <div className="our-side">
-                  <div className="flex items-center mb-2">
-                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
-                  </div>
-                  <div>
-                    <p className="gradient-text font-bold text-lg mt-2">Pay only upon securing your FAANG offer.*</p>
+                  <div className="our-side">
+                    <div className="flex items-center mb-2">
+                      <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
+                      <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                    </div>
+                    <div>
+                      <p className="gradient-text font-bold text-lg mt-2">Pay only upon securing your FAANG offer.*</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -244,60 +246,64 @@ function App() {
 
             {/* Interviewer Quality Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
-                Interviewer Quality
-              </h3>
-              <div className="comparison-content pt-4">
-                <div className="competitor-side">
-                  <div className="flex flex-col mb-2">
-                    <div className="flex items-center">
-                      <X className="h-5 w-5 text-red-500 mr-2" />
-                      <h4 className="text-gray-500 font-bold">The Competition</h4>
+              <div className="comparison-content relative w-full">
+                <h3 className="title-gradient text-center text-lg tracking-tight leading-none absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1A1A1A] px-4">
+                  Interviewer Quality
+                </h3>
+                <div className="pt-8">
+                  <div className="competitor-side">
+                    <div className="flex flex-col mb-2">
+                      <div className="flex items-center">
+                        <X className="h-5 w-5 text-red-500 mr-2" />
+                        <h4 className="text-gray-500 font-bold">The Competition</h4>
+                      </div>
+                      <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
                     </div>
-                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
+                    <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                      Variable, often led by unverified or generalist FAANG individuals
+                    </p>
                   </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
-                    Variable, often led by unverified or generalist FAANG individuals
-                  </p>
-                </div>
-                <div className="our-side">
-                  <div className="flex items-center mb-2">
-                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                  <div className="our-side">
+                    <div className="flex items-center mb-2">
+                      <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
+                      <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                    </div>
+                    <p className="gradient-text font-bold">
+                      Elite FAANG Interviewer Network: Dedicated, rigorously trained, and hand-picked engineers laser-focused on your success.
+                    </p>
                   </div>
-                  <p className="gradient-text font-bold">
-                    Elite FAANG Interviewer Network: Dedicated, rigorously trained, and hand-picked engineers laser-focused on your success.
-                  </p>
                 </div>
               </div>
             </div>
 
             {/* Prep Strategy Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
-                Prep Strategy
-              </h3>
-              <div className="comparison-content pt-4">
-                <div className="competitor-side">
-                  <div className="flex flex-col mb-2">
-                    <div className="flex items-center">
-                      <X className="h-5 w-5 text-red-500 mr-2" />
-                      <h4 className="text-gray-500 font-bold">The Competition</h4>
+              <div className="comparison-content relative w-full">
+                <h3 className="title-gradient text-center text-lg tracking-tight leading-none absolute -top-3 left-1/2 -translate-x-1/2 bg-[#1A1A1A] px-4">
+                  Prep Strategy
+                </h3>
+                <div className="pt-8">
+                  <div className="competitor-side">
+                    <div className="flex flex-col mb-2">
+                      <div className="flex items-center">
+                        <X className="h-5 w-5 text-red-500 mr-2" />
+                        <h4 className="text-gray-500 font-bold">The Competition</h4>
+                      </div>
+                      <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
                     </div>
-                    <span className="text-sm text-gray-500 ml-7">(Prepfully, MeetaPro, Interview.io etc.)</span>
+                    <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
+                      Generic & monotonous training that is not tailored for you
+                    </p>
                   </div>
-                  <p className="text-red-500 line-through decoration-red-500/50 decoration-[6px]">
-                    Generic & monotonous training that is not tailored for you
-                  </p>
-                </div>
-                <div className="our-side">
-                  <div className="flex items-center mb-2">
-                    <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                  <div className="our-side">
+                    <div className="flex items-center mb-2">
+                      <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
+                      <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                    </div>
+                    <p className="gradient-text font-bold">
+                      Hyper-Personalized Curriculum: Custom-designed training action plan adapting to your unique skills, strengths, and specific areas for improvement.
+                    </p>
                   </div>
-                  <p className="gradient-text font-bold">
-                    Hyper-Personalized Curriculum: Custom-designed training action plan adapting to your unique skills, strengths, and specific areas for improvement.
-                  </p>
                 </div>
               </div>
             </div>
