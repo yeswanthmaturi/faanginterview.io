@@ -43,6 +43,8 @@
   text-align: center;
   width: 100%;
   margin: 0 auto;
+  font-size: 1.5rem;
+  white-space: nowrap;
 }
 
 .title-gradient:hover {
@@ -157,6 +159,7 @@
   transform-style: preserve-3d;
   position: relative;
   overflow: hidden;
+  margin-bottom: 2rem;
 }
 
 .competitor-side p {
