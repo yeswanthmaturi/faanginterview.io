@@ -73,20 +73,6 @@
   z-index: 10;
 }
 
-@keyframes strikethrough {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    width: 100%;
-    opacity: 1;
-  }
-}
-
 .comparison-card h3 {
   font-size: 1.125rem;
   font-weight: 800;
@@ -227,6 +213,7 @@
 .competitor-side p {
   position: relative;
   display: inline-block;
+  text-decoration: none;
 }
 
 .competitor-side p::after {
@@ -244,10 +231,12 @@
   transform-origin: left;
   transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  opacity: 0;
 }
 
 .comparison-card:hover .competitor-side p::after {
-  animation: strikethrough 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  width: 100%;
+  opacity: 1;
 }
 
 .comparison-card:hover {
