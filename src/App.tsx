@@ -4,6 +4,7 @@ import Typewriter from 'typewriter-effect';
 import InterviewShareBanner from './components/InterviewShareBanner';
 import Impact from './components/Impact';
 import SuccessStories from './components/SuccessStories';
+import About from './components/About';
 
 function App() {
   const steps = [
@@ -409,6 +410,7 @@ function App() {
       <InterviewShareBanner />
       <Impact />
       <SuccessStories />
+      <About />
     </div>
   );
 }
