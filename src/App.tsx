@@ -80,7 +80,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#111111] text-white">
+    <div className="min-h-screen bg-[#0A0A0A] text-white">
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         {/* Navigation */}
@@ -214,10 +214,10 @@ function App() {
           <div className="grid md:grid-cols-3 gap-8">
             {/* Pricing Model Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-8">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
                 Pricing Model
               </h3>
-              <div className="comparison-content mt-4">
+              <div className="comparison-content pt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
@@ -244,10 +244,10 @@ function App() {
 
             {/* Interviewer Quality Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-8">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
                 Interviewer Quality
               </h3>
-              <div className="comparison-content mt-4">
+              <div className="comparison-content pt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
@@ -274,10 +274,10 @@ function App() {
 
             {/* Prep Strategy Comparison */}
             <div className="comparison-card flex flex-col items-center">
-              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-8">
+              <h3 className="title-gradient text-center text-lg tracking-tight leading-none mb-4">
                 Prep Strategy
               </h3>
-              <div className="comparison-content mt-4">
+              <div className="comparison-content pt-4">
                 <div className="competitor-side">
                   <div className="flex flex-col mb-2">
                     <div className="flex items-center">
