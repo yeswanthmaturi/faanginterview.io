@@ -263,10 +263,12 @@ function App() {
               >
                 <div className="step-number">{index + 1}</div>
                 <step.icon className="step-icon" aria-hidden="true" />
-                <div className="card-header">
-                  <h3 className="title">{step.title}</h3>
-                  <h4 className="subtitle">{step.subtitle}</h4>
-                </div>
+                <h3 className="text-xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+                  {step.title}
+                </h3>
+                <h4 className="text-lg font-semibold mb-3 text-[#8A2BE2]">
+                  {step.subtitle}
+                </h4>
                 <p className="text-gray-300 leading-relaxed text-sm">
                   {step.description}
                 </p>

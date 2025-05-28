@@ -91,7 +91,7 @@
   font-weight: bold;
   font-size: 1.125rem;
   color: white;
-  transform: translate3d(0, 0, 30px);
+  transform: translateZ(30px);
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.2),
     0 0 20px rgba(0, 240, 255, 0.2);
@@ -103,48 +103,21 @@
   color: #00F0FF;
   margin: 1rem 0 1.5rem;
   filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.3));
-  transform: translate3d(0, 0, 20px);
+  transform: translateZ(20px);
 }
 
-.card-header {
-  transform: translate3d(0, 0, 15px);
-  margin-bottom: 1.5rem;
-  transition: all 0.3s ease;
+.step h3 {
+  transform: translateZ(15px);
+  margin-bottom: 0.5rem;
 }
 
-.card-header .title,
-.card-header .subtitle {
-  background: linear-gradient(135deg, #00F0FF, #8A2BE2);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  margin: 0;
-}
-
-.card-header .subtitle {
-  opacity: 0.9;
-  font-size: 1.1rem;
-  margin-top: 0.25rem;
-}
-
-.step:hover .card-header {
-  transform: translate3d(0, 0, 25px);
-}
-
-.step:hover .card-header .title,
-.step:hover .card-header .subtitle {
-  background: linear-gradient(135deg, #00F0FF 20%, #8A2BE2 80%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  letter-spacing: 0.02em;
+.step h4 {
+  transform: translateZ(12px);
+  margin-bottom: 1rem;
 }
 
 .step p {
-  transform: translate3d(0, 0, 10px);
+  transform: translateZ(10px);
   line-height: 1.6;
 }
 
@@ -166,3 +139,5 @@
     transform: scale(1.03) translateY(-8px) rotateX(5deg);
   }
 }
+
+/* Rest of your existing CSS... */
