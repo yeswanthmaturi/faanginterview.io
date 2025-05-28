@@ -222,14 +222,9 @@
   top: -2px;
   width: 0;
   height: 2px;
-  background: linear-gradient(to right, 
-    rgba(255, 0, 0, 0.3),
-    rgba(255, 0, 0, 0.7) 50%,
-    rgba(255, 0, 0, 0.3)
-  );
+  background: #000;
   transform-origin: left;
   transition: width 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
 }
 
 .comparison-card:hover .competitor-side p::after {
