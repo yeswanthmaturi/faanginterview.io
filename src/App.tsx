@@ -37,7 +37,7 @@ function App() {
     const rail = railRef.current;
     if (!rail) return;
 
-    const scrollAmount = direction === 'left' ? -rail.clientWidth : rail.clientWidth;
+    const scrollAmount = direction === 'left' ? -320 : 320;
     rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   };
 
@@ -325,8 +325,8 @@ function App() {
       </div>
 
       {/* How It Works Section */}
-      <section className="relative py-24 overflow-hidden" ref={stepsRef}>
-        <div className="container mx-auto px-4 mb-12">
+      <section className="relative py-16 overflow-hidden" ref={stepsRef}>
+        <div className="container mx-auto px-4 mb-8">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
             How It Works
           </h2>
@@ -359,13 +359,13 @@ function App() {
               >
                 <div className="step-number">{index + 1}</div>
                 <step.icon className="step-icon" aria-hidden="true" />
-                <h3 className="text-2xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+                <h3 className="text-xl font-bold mb-1 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
                   {step.title}
                 </h3>
-                <h4 className="text-xl font-semibold mb-4 text-[#8A2BE2]">
+                <h4 className="text-lg font-semibold mb-3 text-[#8A2BE2]">
                   {step.subtitle}
                 </h4>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed text-sm">
                   {step.description}
                 </p>
               </article>
@@ -380,10 +380,6 @@ function App() {
             ›
           </button>
         </div>
-
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
-        <div className="absolute top-0 left-0 w-32 h-full bg-gradient-to-r from-[#0A0A0A] to-transparent pointer-events-none" />
-        <div className="absolute top-0 right-0 w-32 h-full bg-gradient-to-l from-[#0A0A0A] to-transparent pointer-events-none" />
       </section>
 
       <div className="vertical-scroll-section">
