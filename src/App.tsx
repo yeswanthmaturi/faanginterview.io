@@ -2,6 +2,7 @@ import React from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 import InterviewShareBanner from './components/InterviewShareBanner';
+import Impact from './components/Impact';
 
 function App() {
   const steps = [
@@ -405,6 +406,7 @@ function App() {
 
       {/* Interview Share Banner */}
       <InterviewShareBanner />
+      <Impact />
     </div>
   );
 }
