@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
+import InterviewShareBanner from './components/InterviewShareBanner';
 
 function App() {
   const steps = [
@@ -401,6 +402,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Interview Share Banner */}
+      <InterviewShareBanner />
     </div>
   );
 }
