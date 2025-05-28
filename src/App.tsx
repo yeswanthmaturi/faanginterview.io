@@ -1,9 +1,16 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const [activeSection, setActiveSection] = useState(0);
+  const sectionsRef = useRef<HTMLDivElement[]>([]);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const stepsRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -15,83 +22,24 @@ function App() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('show');
-            gsap.to(entry.target, {
-              scale: 1,
-              opacity: 1,
-              duration: 0.6,
-              ease: "back.out(1.7)"
-            });
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    rail.querySelectorAll('.step').forEach((step) => {
-      observer.observe(step);
-      
-      // Initialize GSAP hover effects
-      step.addEventListener('mouseenter', () => {
-        gsap.to(step, {
-          scale: 1.05,
-          y: -10,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
+    rail.querySelectorAll('.step').forEach((step) => observer.observe(step));
 
-      step.addEventListener('mouseleave', () => {
-        gsap.to(step, {
-          scale: 1,
-          y: 0,
-          duration: 0.3,
-          ease: "power2.out"
-        });
-      });
-    });
-
-    let isDown = false;
-    let startX: number;
-    let scrollLeft: number;
-
-    const handleMouseDown = (e: MouseEvent) => {
-      isDown = true;
-      rail.classList.add('grabbing');
-      startX = e.pageX - rail.offsetLeft;
-      scrollLeft = rail.scrollLeft;
-    };
-
-    const handleMouseUp = () => {
-      isDown = false;
-      rail.classList.remove('grabbing');
-    };
-
-    const handleMouseLeave = () => {
-      isDown = false;
-      rail.classList.remove('grabbing');
-    };
-
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - rail.offsetLeft;
-      const walk = (x - startX) * 2;
-      rail.scrollLeft = scrollLeft - walk;
-    };
-
-    rail.addEventListener('mousedown', handleMouseDown);
-    rail.addEventListener('mouseleave', handleMouseLeave);
-    rail.addEventListener('mouseup', handleMouseUp);
-    rail.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      observer.disconnect();
-      rail.removeEventListener('mousedown', handleMouseDown);
-      rail.removeEventListener('mouseleave', handleMouseLeave);
-      rail.removeEventListener('mouseup', handleMouseUp);
-      rail.removeEventListener('mousemove', handleMouseMove);
-    };
+    return () => observer.disconnect();
   }, []);
+
+  const scrollRail = (direction: 'left' | 'right') => {
+    const rail = railRef.current;
+    if (!rail) return;
+
+    const scrollAmount = direction === 'left' ? -320 : 320;
+    rail.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  };
 
   const steps = [
     {
@@ -123,6 +71,30 @@ function App() {
       title: "Masterful Offer",
       subtitle: "Negotiation",
       description: "Unlock your earning potential with our comprehensive negotiation coaching, proven to increase FAANG offers by an average of $30-50K+. Secure the compensation you deserve."
+    }
+  ];
+
+  const features = [
+    {
+      title: "Initial Consultation",
+      subtitle: "Free Mock Interview",
+      icon: Users,
+      description: "We analyze your profile and target interview, providing a free, company- and role-specific mock interview conducted by a FAANG engineer.",
+      color: "#00F0FF"
+    },
+    {
+      title: "Personalized Learning",
+      subtitle: "Custom Pathway",
+      icon: Target,
+      description: "Leveraging insights from your target company and role, we develop a meticulously crafted preparation strategy designed to optimize your success.",
+      color: "#8A2BE2"
+    },
+    {
+      title: "Targeted Training",
+      subtitle: "Expert Curriculum",
+      icon: BookOpen,
+      description: "Access role-specific training materials, video courses, and practice exercises crafted by FAANG engineers.",
+      color: "#00F0FF"
     }
   ];
 
@@ -353,7 +325,7 @@ function App() {
       </div>
 
       {/* How It Works Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-16 overflow-hidden" ref={stepsRef}>
         <div className="container mx-auto px-4 mb-8">
           <h2 className="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
             How It Works
@@ -364,6 +336,14 @@ function App() {
         </div>
 
         <div className="relative">
+          <button 
+            onClick={() => scrollRail('left')}
+            className="nav-button left"
+            aria-label="Scroll left"
+          >
+            ‹
+          </button>
+          
           <div 
             ref={railRef}
             className="steps-rail"
@@ -391,8 +371,52 @@ function App() {
               </article>
             ))}
           </div>
+
+          <button 
+            onClick={() => scrollRail('right')}
+            className="nav-button right"
+            aria-label="Scroll right"
+          >
+            ›
+          </button>
         </div>
       </section>
+
+      <div className="vertical-scroll-section">
+        {features.map((feature, index) => (
+          <div
+            key={index}
+            ref={(el) => (sectionsRef.current[index] = el as HTMLDivElement)}
+            className="scroll-section"
+          >
+            <div className="section-gradient" />
+            <div className="scroll-section-content max-w-7xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                  <feature.icon
+                    className="floating-element feature-icon"
+                    style={{ color: feature.color }}
+                  />
+                  <h2 className="text-5xl font-bold mb-4 gradient-text">
+                    {feature.title}
+                  </h2>
+                  <h3 className="text-3xl font-semibold mb-6 text-[#8A2BE2]">
+                    {feature.subtitle}
+                  </h3>
+                  <p className="text-xl text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
+                <div className="feature-card floating-element">
+                  <div className="aspect-square rounded-xl bg-gradient-to-br from-[#00F0FF]/20 to-[#8A2BE2]/20 flex items-center justify-center">
+                    <feature.icon className="h-24 w-24" style={{ color: feature.color }} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
