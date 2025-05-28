@@ -159,7 +159,6 @@
   transform-style: preserve-3d;
   position: relative;
   overflow: hidden;
-  margin-top: 3rem;
   margin-bottom: 2rem;
 }
 
@@ -214,8 +213,7 @@
   transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
   transform-style: preserve-3d;
   backface-visibility: hidden;
-  padding-top: 3rem;
-  margin-top: -1rem;
+  padding-top: 2rem;
 }
 
 .comparison-content::before {
