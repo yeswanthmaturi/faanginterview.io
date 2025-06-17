@@ -1,6 +1,7 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
+import MetaPage from './pages/MetaPage';
 
 // Lazy load components
 const InterviewShareBanner = lazy(() => import('./components/InterviewShareBanner'));
@@ -10,6 +11,13 @@ const About = lazy(() => import('./components/About'));
 const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  // If we're on the Meta page, render that instead
+  if (currentPage === 'meta') {
+    return <MetaPage />;
+  }
+
   const steps = [
     {
       icon: Users,
@@ -81,6 +89,13 @@ function App() {
     }
   };
 
+  const handleCompanyClick = (company: string) => {
+    if (company === 'Meta') {
+      setCurrentPage('meta');
+    }
+    // Add other company handlers here as needed
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       {/* Hero Section */}
@@ -90,7 +105,7 @@ function App() {
           <div className="container mx-auto flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Code className="h-8 w-8 text-[#00F0FF]" />
-              <span className="text-xl font-semibold tracking-tight">FAANGInterview.io</span>
+              <span className="text-xl font-semibold tracking-tight">FAANGInterview.org</span>
             </div>
             <button className="rounded-full bg-[#8A2BE2] px-6 py-2 font-medium transition-all duration-300 ease-in-out hover:bg-opacity-80 hover:transform hover:scale-105">
               Get Started
@@ -209,7 +224,7 @@ function App() {
               demands a tailored strategy, expert guidance, and a risk-free approach.
             </p>
             <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-              Here's how FAANGInterview.io provides that <span className="decisive-edge">decisive edge</span>:
+              Here's how FAANGInterview.org provides that <span className="decisive-edge">decisive edge</span>:
             </p>
           </div>
 
@@ -235,7 +250,7 @@ function App() {
                 <div className="our-side">
                   <div className="flex items-center mb-2">
                     <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.org</h4>
                   </div>
                   <div>
                     <p className="gradient-text font-bold text-lg mt-2">Pay only upon securing your FAANG offer.*</p>
@@ -265,7 +280,7 @@ function App() {
                 <div className="our-side">
                   <div className="flex items-center mb-2">
                     <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.org</h4>
                   </div>
                   <p className="gradient-text font-bold">
                     Elite FAANG Interviewer Network: Dedicated, rigorously trained, and hand-picked engineers laser-focused on your success.
@@ -295,7 +310,7 @@ function App() {
                 <div className="our-side">
                   <div className="flex items-center mb-2">
                     <Check className="h-5 w-5 text-[#00F0FF] mr-2" />
-                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.io</h4>
+                    <h4 className="text-[#8A2BE2] font-bold">FAANGInterview.org</h4>
                   </div>
                   <p className="gradient-text font-bold">
                     Hyper-Personalized Curriculum: Custom-designed training action plan adapting to your unique skills, strengths, and specific areas for improvement.
@@ -307,7 +322,7 @@ function App() {
 
           <div className="text-center mt-16">
             <h3 className="text-2xl font-bold text-[#00F0FF] mb-4 animate-pulse">
-              The FAANGInterview.io Difference: Engineered for Results
+              The FAANGInterview.org Difference: Engineered for Results
             </h3>
           </div>
         </div>
@@ -392,7 +407,10 @@ function App() {
                     {role.companies.map((company, companyIndex) => (
                       <span
                         key={companyIndex}
-                        className="px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20"
+                        className={`px-4 py-1.5 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#8A2BE2] border border-[#8A2BE2]/20 ${
+                          company === 'Meta' ? 'cursor-pointer hover:bg-[#00F0FF]/20 transition-colors' : ''
+                        }`}
+                        onClick={() => company === 'Meta' && handleCompanyClick(company)}
                       >
                         {company}
                       </span>

@@ -60,7 +60,7 @@ function About() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
-              About FAANGinterview.io
+              About FAANGinterview.org
             </h2>
           </div>
 

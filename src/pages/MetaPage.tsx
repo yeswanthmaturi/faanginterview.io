@@ -13,7 +13,7 @@ function MetaPage() {
         <div className="container mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <Code className="h-8 w-8 text-[#00F0FF]" />
-            <span className="text-xl font-semibold tracking-tight">FAANGInterview.io</span>
+            <span className="text-xl font-semibold tracking-tight">FAANGInterview.org</span>
           </div>
           <button 
             onClick={handleBackToHome}
