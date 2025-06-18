@@ -35,7 +35,7 @@ function ExternalMetaPage() {
               </h1>
             </div>
             <div className="mb-10 max-w-2xl space-y-4 text-2xl font-bold tracking-tight">
-              <div className="decisive-edge">We are hands down the best resource available in the market for the Meta Data Engineer interview</div>
+              <div className="decisive-edge">We are hands down the best resource available in the market for the Meta Data Engineer interview. Succeed or don't pay us*</div>
             </div>
             
             {/* Content area */}
