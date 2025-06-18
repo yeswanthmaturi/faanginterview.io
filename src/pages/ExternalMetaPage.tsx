@@ -39,7 +39,7 @@ function ExternalMetaPage() {
               <div className="decisive-edge">
                 We are hands down the best resource available online for the Meta Data Engineer interview.
               </div>
-              <div className="text-4xl decisive-edge">
+              <div className="text-5xl decisive-edge">
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
