@@ -57,7 +57,7 @@ function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
-                      .typeString('Succeed or don\'t pay us*')
+                      .typeString('Succeed or Don\'t pay us*')
                       .start();
                   }}
                   options={{
