@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowLeft, Code } from 'lucide-react';
+import { ArrowLeft, Code, ExternalLink } from 'lucide-react';
 
-function MetaPage() {
+function ExternalMetaPage() {
   const handleBackToHome = () => {
     window.history.back();
   };
@@ -31,19 +31,43 @@ function MetaPage() {
           <div className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center">
             <div className="mb-8 max-w-4xl">
               <h1 className="bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
-                Meta Interview Preparation
+                Meta Data Engineer Interview
               </h1>
             </div>
             <div className="mb-10 max-w-2xl space-y-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-2xl font-bold tracking-tight text-transparent">
-              <div>Master your Meta interview with expert guidance</div>
+              <div>Specialized preparation for Meta Data Engineer roles</div>
             </div>
             
-            {/* Placeholder content area */}
+            {/* Content area */}
             <div className="w-full max-w-4xl">
               <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-12 border border-[#8A2BE2]/20">
-                <p className="text-gray-400 text-lg text-center">
-                  Content coming soon...
+                <div className="flex items-center justify-center mb-6">
+                  <ExternalLink className="h-12 w-12 text-[#00F0FF]" />
+                </div>
+                <h2 className="text-2xl font-bold mb-4 text-[#00F0FF]">
+                  Meta Data Engineer Preparation
+                </h2>
+                <p className="text-gray-300 text-lg mb-8">
+                  This page represents the dedicated Meta Data Engineer interview preparation content that would be available at faanginterview.org/de/meta
                 </p>
+                <div className="space-y-4 text-left max-w-2xl mx-auto">
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#00F0FF] rounded-full mt-2"></div>
+                    <p className="text-gray-400">Comprehensive SQL interview preparation</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#8A2BE2] rounded-full mt-2"></div>
+                    <p className="text-gray-400">Python data engineering challenges</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#00F0FF] rounded-full mt-2"></div>
+                    <p className="text-gray-400">Meta-specific system design scenarios</p>
+                  </div>
+                  <div className="flex items-start space-x-3">
+                    <div className="w-2 h-2 bg-[#8A2BE2] rounded-full mt-2"></div>
+                    <p className="text-gray-400">Behavioral interview coaching</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -56,4 +80,4 @@ function MetaPage() {
   );
 }
 
-export default MetaPage;
+export default ExternalMetaPage;

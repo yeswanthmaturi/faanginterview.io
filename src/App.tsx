@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { Code, ArrowRight, CheckCircle2, X, Check, Target, Clock, Users, BookOpen, DollarSign } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
-import MetaPage from './pages/MetaPage';
+import ExternalMetaPage from './pages/ExternalMetaPage';
 
 // Lazy load components
 const InterviewShareBanner = lazy(() => import('./components/InterviewShareBanner'));
@@ -13,9 +13,9 @@ const Footer = lazy(() => import('./components/Footer'));
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
 
-  // If we're on the Meta page, render that instead
-  if (currentPage === 'meta') {
-    return <MetaPage />;
+  // If we're on the external meta page, render that instead
+  if (currentPage === 'external-meta') {
+    return <ExternalMetaPage />;
   }
 
   const steps = [
@@ -91,7 +91,12 @@ function App() {
 
   const handleCompanyClick = (company: string) => {
     if (company === 'Meta') {
-      setCurrentPage('meta');
+      // In a real application, this would redirect to the external URL
+      // For demo purposes, we'll show the page within the app
+      setCurrentPage('external-meta');
+      
+      // Uncomment the line below for actual external redirect:
+      // window.open('https://faanginterview.org/de/meta', '_blank');
     }
     // Add other company handlers here as needed
   };
