@@ -108,12 +108,12 @@ function App() {
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 z-50 px-4 py-6">
           <div className="container mx-auto flex items-center justify-between">
-            <div className="flex flex-col">
+            <div className="flex flex-col items-center">
               <div className="flex items-center space-x-2">
                 <Code className="h-8 w-8 text-[#00F0FF]" />
                 <span className="text-xl font-semibold tracking-tight">FAANGInterview.org</span>
               </div>
-              <span className="text-xs text-gray-400 ml-10 mt-1">A TechPathX initiative</span>
+              <span className="text-xs text-gray-400 mt-1">A TechPathX initiative</span>
             </div>
             <button className="rounded-full bg-[#8A2BE2] px-6 py-2 font-medium transition-all duration-300 ease-in-out hover:bg-opacity-80 hover:transform hover:scale-105">
               Get Started
