@@ -2,9 +2,17 @@ import React from 'react';
 import { ArrowLeft, Code, ExternalLink } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 
-function ExternalMetaPage() {
+interface ExternalMetaPageProps {
+  onNavigateHome: () => void;
+}
+
+function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
   const handleBackToHome = () => {
-    window.history.back();
+    onNavigateHome();
+  };
+
+  const handleLogoClick = () => {
+    onNavigateHome();
   };
 
   return (
@@ -12,7 +20,10 @@ function ExternalMetaPage() {
       {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 z-50 px-4 py-6">
         <div className="container mx-auto flex items-center justify-between">
-          <div className="flex flex-col items-center">
+          <div 
+            className="flex flex-col items-center cursor-pointer transition-all duration-300 ease-in-out hover:transform hover:scale-105"
+            onClick={handleLogoClick}
+          >
             <div className="flex items-center space-x-2">
               <Code className="h-8 w-8 text-[#00F0FF]" />
               <span className="text-2xl font-semibold tracking-tight">FAANGInterview.org</span>

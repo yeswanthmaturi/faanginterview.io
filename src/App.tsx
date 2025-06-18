@@ -15,7 +15,7 @@ function App() {
 
   // If we're on the external meta page, render that instead
   if (currentPage === 'external-meta') {
-    return <ExternalMetaPage />;
+    return <ExternalMetaPage onNavigateHome={() => setCurrentPage('home')} />;
   }
 
   const steps = [
@@ -101,6 +101,10 @@ function App() {
     // Add other company handlers here as needed
   };
 
+  const handleLogoClick = () => {
+    setCurrentPage('home');
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       {/* Hero Section */}
@@ -108,7 +112,10 @@ function App() {
         {/* Navigation */}
         <nav className="absolute top-0 left-0 right-0 z-50 px-4 py-6">
           <div className="container mx-auto flex items-center justify-between">
-            <div className="flex flex-col items-center">
+            <div 
+              className="flex flex-col items-center cursor-pointer transition-all duration-300 ease-in-out hover:transform hover:scale-105"
+              onClick={handleLogoClick}
+            >
               <div className="flex items-center space-x-2">
                 <Code className="h-8 w-8 text-[#00F0FF]" />
                 <span className="text-2xl font-semibold tracking-tight">FAANGInterview.org</span>
