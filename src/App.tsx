@@ -113,7 +113,7 @@ function App() {
                 <Code className="h-8 w-8 text-[#00F0FF]" />
                 <span className="text-xl font-semibold tracking-tight">FAANGInterview.org</span>
               </div>
-              <span className="text-xs text-gray-400 mt-1">A TechPathX initiative</span>
+              <span className="text-xs text-gray-400/50 mt-1">A TechPathX initiative</span>
             </div>
             <button className="rounded-full bg-[#8A2BE2] px-6 py-2 font-medium transition-all duration-300 ease-in-out hover:bg-opacity-80 hover:transform hover:scale-105">
               Get Started
