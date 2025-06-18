@@ -65,7 +65,7 @@ function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
               </h1>
             </div>
             <div className="mb-10 max-w-1xl space-y-4 text-1xl font-bold tracking-tight">
-              <div className="decisive-edge text-3xl sm:text-4xl">
+              <div className="decisive-edge">
                 We are hands down the best resource available online for the Meta Data Engineer interview.
               </div>
               <div className="text-4xl bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
