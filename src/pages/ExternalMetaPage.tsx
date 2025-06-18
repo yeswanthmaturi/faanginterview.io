@@ -35,11 +35,11 @@ function ExternalMetaPage() {
                 Meta Data Engineer, Product Analytics Prep Guide
               </h1>
             </div>
-            <div className="mb-10 max-w-2xl space-y-4 text-2xl font-bold tracking-tight">
-              <div className="decisive-edge">
-                We are hands down the best resource available in the market for the Meta Data Engineer interview.
+            <div className="mb-10 max-w-4xl text-3xl font-bold tracking-tight">
+              <div className="decisive-edge inline">
+                We are hands down the best resource available in the market for the Meta Data Engineer interview.{' '}
               </div>
-              <div className="text-4xl sm:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+              <div className="inline bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
