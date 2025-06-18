@@ -111,7 +111,7 @@ function App() {
             <div className="flex flex-col items-center">
               <div className="flex items-center space-x-2">
                 <Code className="h-8 w-8 text-[#00F0FF]" />
-                <span className="text-xl font-semibold tracking-tight">FAANGInterview.org</span>
+                <span className="text-2xl font-semibold tracking-tight">FAANGInterview.org</span>
               </div>
               <span className="text-xs text-gray-400/50 mt-1">A TechPathX initiative</span>
             </div>
