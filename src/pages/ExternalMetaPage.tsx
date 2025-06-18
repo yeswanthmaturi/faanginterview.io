@@ -31,7 +31,7 @@ function ExternalMetaPage() {
           <div className="relative z-10 flex min-h-[80vh] flex-col items-center justify-center text-center">
             <div className="mb-8 max-w-4xl">
               <h1 className="bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
-                Meta Data Engineer - Product Analytics
+                Meta Data Engineer, Product Analytics - Interview Prep
               </h1>
             </div>
             <div className="mb-10 max-w-2xl space-y-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-2xl font-bold tracking-tight text-transparent">
