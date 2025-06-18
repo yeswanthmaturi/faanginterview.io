@@ -188,23 +188,6 @@ function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
                 </p>
               </div>
             </div>
-
-            {/* Key Technologies Highlight */}
-            <div className="mt-12 bg-gradient-to-br from-[#1A1A1A]/80 to-[#0F0F0F]/80 rounded-2xl p-8 backdrop-blur-xl border border-[#8A2BE2]/20">
-              <h4 className="text-xl font-bold text-center mb-6 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
-                Key Technologies You'll Work With
-              </h4>
-              <div className="flex flex-wrap justify-center gap-3">
-                {['Hive', 'Presto', 'Spark', 'ETL Pipelines', 'Real-time Dashboards', 'A/B Testing', 'Machine Learning', 'GPU Clusters', 'Data Warehousing'].map((tech, index) => (
-                  <span
-                    key={index}
-                    className="px-4 py-2 text-sm font-medium rounded-full bg-[#00F0FF]/10 text-[#00F0FF] border border-[#00F0FF]/20 hover:bg-[#00F0FF]/20 transition-colors"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
