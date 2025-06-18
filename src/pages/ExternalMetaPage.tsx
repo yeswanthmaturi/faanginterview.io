@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Code, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Code } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 
 interface ExternalMetaPageProps {
@@ -71,39 +71,6 @@ function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
                     keepCursorOnComplete: true
                   }}
                 />
-              </div>
-            </div>
-            
-            {/* Content area */}
-            <div className="w-full max-w-4xl">
-              <div className="bg-gradient-to-br from-[#1A1A1A] to-[#0F0F0F] rounded-xl p-12 border border-[#8A2BE2]/20">
-                <div className="flex items-center justify-center mb-6">
-                  <ExternalLink className="h-12 w-12 text-[#00F0FF]" />
-                </div>
-                <h2 className="text-2xl font-bold mb-4 text-[#00F0FF]">
-                  Meta Data Engineer Preparation
-                </h2>
-                <p className="text-gray-300 text-lg mb-8">
-                  This page represents the dedicated Meta Data Engineer interview preparation content that would be available at faanginterview.org/de/meta
-                </p>
-                <div className="space-y-4 text-left max-w-2xl mx-auto">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-[#00F0FF] rounded-full mt-2"></div>
-                    <p className="text-gray-400">Comprehensive SQL interview preparation</p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-[#8A2BE2] rounded-full mt-2"></div>
-                    <p className="text-gray-400">Python data engineering challenges</p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-[#00F0FF] rounded-full mt-2"></div>
-                    <p className="text-gray-400">Meta-specific system design scenarios</p>
-                  </div>
-                  <div className="flex items-start space-x-3">
-                    <div className="w-2 h-2 bg-[#8A2BE2] rounded-full mt-2"></div>
-                    <p className="text-gray-400">Behavioral interview coaching</p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
