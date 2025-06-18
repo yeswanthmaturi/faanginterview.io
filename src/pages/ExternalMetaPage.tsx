@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, Code, ExternalLink } from 'lucide-react';
+import Typewriter from 'typewriter-effect';
 
 function ExternalMetaPage() {
   const handleBackToHome = () => {
@@ -34,9 +35,28 @@ function ExternalMetaPage() {
                 Meta Data Engineer, Product Analytics Prep Guide
               </h1>
             </div>
-            <div className="mb-10 max-w-1xl space-y-4 text-1xl font-bold tracking-tight">
+            <div className="mb-10 max-w-2xl space-y-4 text-2xl font-bold tracking-tight">
               <div className="decisive-edge">
-                We are hands down the best resource available online for the Meta Data Engineer interview.     <span className="text-3xl">  Succeed or don't pay us*</span>
+                We are hands down the best resource available online for the Meta Data Engineer interview.
+              </div>
+              <div className="text-3xl decisive-edge">
+                <Typewriter
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString('Succeed or don\'t pay us*')
+                      .start();
+                  }}
+                  options={{
+                    cursor: '|',
+                    delay: 75,
+                    loop: false,
+                    autoStart: true,
+                    deleteSpeed: Infinity,
+                    wrapperClassName: 'Typewriter__wrapper',
+                    cursorClassName: 'Typewriter__cursor',
+                    keepCursorOnComplete: true
+                  }}
+                />
               </div>
             </div>
             
