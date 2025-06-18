@@ -35,7 +35,7 @@ function ExternalMetaPage() {
               </h1>
             </div>
             <div className="mb-10 max-w-2xl space-y-4 bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-2xl font-bold tracking-tight text-transparent">
-              <div>Specialized preparation for Meta Data Engineer roles</div>
+              <div>We are hands down the best resource available in the market for the Meta Data Engineer interview</div>
             </div>
             
             {/* Content area */}
