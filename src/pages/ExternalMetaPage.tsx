@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Code } from 'lucide-react';
+import { ArrowLeft, Code, MessageCircle, FileText, ClipboardList } from 'lucide-react';
 import Typewriter from 'typewriter-effect';
 
 interface ExternalMetaPageProps {
@@ -13,6 +13,21 @@ function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
 
   const handleLogoClick = () => {
     onNavigateHome();
+  };
+
+  const handleGetInTouch = () => {
+    // Handle get in touch action
+    console.log('Get in touch clicked');
+  };
+
+  const handleJobDescription = () => {
+    // Handle job description action
+    console.log('Job description clicked');
+  };
+
+  const handleInterviewFormat = () => {
+    // Handle interview format action
+    console.log('Interview format clicked');
   };
 
   return (
@@ -72,6 +87,33 @@ function ExternalMetaPage({ onNavigateHome }: ExternalMetaPageProps) {
                   }}
                 />
               </div>
+            </div>
+
+            {/* Navigation Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 mt-16">
+              <button 
+                onClick={handleGetInTouch}
+                className="flex items-center justify-center space-x-3 rounded-full bg-[#00F0FF] px-8 py-4 font-semibold text-black transition-all duration-300 ease-in-out hover:bg-opacity-80 hover:transform hover:scale-105 min-w-[200px]"
+              >
+                <MessageCircle className="h-6 w-6" />
+                <span>Get in Touch</span>
+              </button>
+              
+              <button 
+                onClick={handleJobDescription}
+                className="flex items-center justify-center space-x-3 rounded-full border border-[#8A2BE2] px-8 py-4 font-semibold transition-all duration-300 ease-in-out hover:bg-[#8A2BE2]/10 hover:transform hover:scale-105 min-w-[200px]"
+              >
+                <FileText className="h-6 w-6" />
+                <span>Job Description</span>
+              </button>
+              
+              <button 
+                onClick={handleInterviewFormat}
+                className="flex items-center justify-center space-x-3 rounded-full border border-[#00F0FF] px-8 py-4 font-semibold transition-all duration-300 ease-in-out hover:bg-[#00F0FF]/10 hover:transform hover:scale-105 min-w-[200px]"
+              >
+                <ClipboardList className="h-6 w-6" />
+                <span>Interview Format</span>
+              </button>
             </div>
           </div>
         </div>
