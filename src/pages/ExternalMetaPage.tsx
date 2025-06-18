@@ -39,7 +39,7 @@ function ExternalMetaPage() {
               <div className="decisive-edge">
                 We are hands down the best resource available online for the Meta Data Engineer interview.
               </div>
-              <div className="text-5xl bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
+              <div className="text-4xl bg-gradient-to-r from-[#00F0FF] to-[#8A2BE2] bg-clip-text text-transparent">
                 <Typewriter
                   onInit={(typewriter) => {
                     typewriter
